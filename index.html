@@ -286,7 +286,9 @@
   /* ---------- FOOTER ---------- */
   footer{background:var(--header-bg);color:rgba(255,255,255,0.6);padding:56px 0 24px;}
   .footer-logo{margin-bottom:40px;}
-  .wordmark{font-family:'Poppins',sans-serif;font-weight:800;font-size:25px;letter-spacing:-.035em;color:#fff;line-height:1;display:inline-block;}
+  .wordmark{font-family:'Poppins',sans-serif;font-weight:800;font-size:25px;letter-spacing:-.035em;color:var(--ontlast-black);line-height:1;display:inline-block;}
+  footer .wordmark, .article-hero .wordmark{color:#fff;}
+  .logo-link:hover .wordmark{color:var(--ontlast-coral);}
   .wordmark-dot{color:#2E9E76;}
   .footer-payoff{font-family:'Poppins',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:10px;}
   @media(max-width:600px){.wordmark{font-size:21px;}}
@@ -652,7 +654,94 @@
   .article-related{background:#F3F0E9;padding:60px 0 70px;margin-top:20px;}
   .article-related h2{font-family:'Poppins',sans-serif;font-size:22px;font-weight:700;margin:0 0 26px;
     color:var(--heading-color);letter-spacing:-0.01em;}
+  .product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;}
+  .product-grid .product-card{flex:none;width:auto;min-width:0;}
+  @media(max-width:1100px){.product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}}
+  @media(max-width:760px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+    .product-grid .product-card{padding:16px;}
+    .product-grid .product-card img{height:130px;margin-bottom:12px;}
+    .product-grid .product-card h4{font-size:14px;min-height:34px;}}
   .article-related .product-grid{margin:0;}
+
+  /* ---------- ARTIKEL: FIGUREN ---------- */
+  .article-fig{margin:32px 0 28px;}
+  .article-fig img{width:100%;height:auto;border-radius:8px;display:block;}
+  .article-fig figcaption{font-size:12.5px;line-height:1.55;color:rgba(18,33,27,0.55);margin-top:9px;}
+
+  /* ---------- ARTIKEL: SIDEBAR ---------- */
+  .article-layout{max-width:1180px;margin:0 auto;padding:52px 24px 30px;
+    display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:54px;align-items:start;}
+  .article-main{min-width:0;max-width:780px;}
+  .article-side{position:sticky;top:100px;display:flex;flex-direction:column;gap:18px;}
+  .side-card{background:#fff;border:1px solid var(--border-light);border-radius:8px;padding:22px;}
+  .side-h{font-family:'Poppins',sans-serif;font-size:12px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.09em;color:var(--ontlast-black);margin:0 0 14px;}
+  .toc-list{margin:0;padding-left:18px;font-size:13.5px;line-height:1.5;color:var(--body-text);}
+  .toc-list li{margin-bottom:9px;}
+  .toc-list a{color:var(--body-text);text-decoration:none;cursor:pointer;}
+  .toc-list a:hover{color:var(--ontlast-coral);text-decoration:underline;}
+  .side-prod{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);cursor:pointer;}
+  .side-prod:last-of-type{border-bottom:0;}
+  .side-prod img{width:52px;height:52px;object-fit:contain;background:#F3F6F4;border-radius:5px;flex:none;}
+  .side-prod .sp-t{font-size:13px;font-weight:700;color:var(--ontlast-black);line-height:1.3;}
+  .side-prod .sp-p{font-size:13px;font-weight:800;color:var(--ontlast-coral);margin-top:3px;}
+  .side-link{display:inline-block;margin-top:12px;font-size:12px;font-weight:800;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--ontlast-coral);cursor:pointer;text-decoration:none;}
+  .side-link:hover{color:var(--ontlast-black);}
+  .side-nb{background:var(--header-bg);border-color:var(--header-bg);}
+  .side-nb .side-h{color:#fff;}
+  .side-nb p{font-size:13.5px;line-height:1.6;color:rgba(255,255,255,0.72);margin:0 0 16px;}
+  .side-btn{display:block;text-align:center;background:var(--ontlast-teal);color:#fff;font-weight:800;
+    font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:13px 14px;border-radius:4px;
+    text-decoration:none;cursor:pointer;border:2px solid var(--ontlast-teal);transition:all .16s ease;}
+  .side-btn:hover{background:transparent;color:#fff;}
+  .article-cta{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
+    background:#EEF4F0;border-radius:8px;padding:24px 26px;margin-top:38px;}
+  .article-cta strong{display:block;font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;
+    color:var(--ontlast-black);margin-bottom:5px;}
+  .article-cta p{margin:0;font-size:14px;line-height:1.6;color:var(--body-text);max-width:440px;}
+  @media(max-width:980px){
+    .article-layout{grid-template-columns:1fr;gap:34px;padding:38px 22px 24px;}
+    .article-side{position:static;}
+    .article-main{max-width:none;}
+  }
+
+  /* ---------- 15% POPUP ---------- */
+  .promo-pop{position:fixed;inset:0;z-index:9500;background:rgba(18,33,27,0.55);
+    display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;visibility:hidden;
+    transition:opacity .25s ease,visibility .25s ease;}
+  .promo-pop.show{opacity:1;visibility:visible;}
+  .promo-card{background:#fff;border-radius:10px;overflow:hidden;max-width:760px;width:100%;
+    display:grid;grid-template-columns:1fr 1fr;position:relative;box-shadow:0 30px 70px rgba(0,0,0,.3);
+    transform:translateY(14px);transition:transform .25s ease;}
+  .promo-pop.show .promo-card{transform:translateY(0);}
+  .promo-img{background:#EEF4F0;}
+  .promo-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .promo-body{padding:38px 34px 30px;}
+  .promo-eyebrow{font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--ontlast-coral);}
+  .promo-body h3{font-family:'Poppins',sans-serif;font-size:26px;line-height:1.2;font-weight:800;
+    color:var(--ontlast-black);margin:10px 0 12px;}
+  .promo-body p{font-size:14px;line-height:1.65;color:var(--body-text);margin:0 0 20px;}
+  .promo-form{display:flex;flex-direction:column;gap:10px;}
+  .promo-form input{padding:13px 14px;border:2px solid var(--border-light);border-radius:4px;
+    font-size:14px;font-family:inherit;}
+  .promo-form input:focus{outline:none;border-color:var(--ontlast-teal);}
+  .promo-form .btn{width:100%;}
+  .promo-done{display:none;background:#EEF4F0;border-left:4px solid var(--ontlast-teal);
+    padding:14px 16px;font-size:14px;line-height:1.55;color:var(--ontlast-black);border-radius:0 4px 4px 0;}
+  .promo-done.show{display:block;}
+  .promo-done strong{font-weight:800;letter-spacing:.04em;}
+  .promo-no{display:block;margin:14px auto 0;background:none;border:0;cursor:pointer;font-family:inherit;
+    font-size:12px;color:rgba(18,33,27,0.5);text-decoration:underline;}
+  .promo-close{position:absolute;top:10px;right:14px;background:none;border:0;font-size:28px;line-height:1;
+    cursor:pointer;color:var(--ontlast-black);z-index:2;}
+  .promo-small{font-size:11.5px;color:rgba(18,33,27,0.45);margin:12px 0 0;line-height:1.5;}
+  @media(max-width:720px){
+    .promo-card{grid-template-columns:1fr;max-width:420px;}
+    .promo-img{height:150px;}
+    .promo-body{padding:26px 22px 22px;}
+    .promo-body h3{font-size:21px;}
+  }
   .article-more{padding:0 24px 70px;max-width:1180px;margin:0 auto;}
   /* over ons */
   .about-intro{padding-top:64px;padding-bottom:10px;}
@@ -827,13 +916,13 @@
 
     <div class="newsletter">
       <div class="container">
-        <h2>Ontvang 10% korting</h2>
-        <p>Meld je aan voor de nieuwsbrief van Ontlast.nl en ontvang tips voor je spijsvertering plus 10% korting op je eerste bestelling.</p>
+        <h2>Ontvang 15% korting</h2>
+        <p>Meld je aan voor de nieuwsbrief van Ontlast.nl en ontvang tips voor je spijsvertering plus 15% korting op je eerste bestelling.</p>
         <form class="newsletter-form" id="newsletterForm">
           <input name="Enter your email" type="email" placeholder="Jouw e-mailadres" required />
           <button type="submit" class="btn btn-outline-white">Aanmelden</button>
         </form>
-        <div class="newsletter-note" id="newsletterNote">Bedankt! Check je inbox voor je kortingscode.</div>
+        <div class="newsletter-note" id="newsletterNote">Bedankt! Gebruik code <strong>WELKOM15</strong> voor 15% korting op je eerste bestelling.</div>
       </div>
     </div>
 
@@ -1698,9 +1787,19 @@
   <!-- ============ ARTIKEL ============ -->
   <section class="page" id="page-article">
     <div class="article-hero" id="articleHero"></div>
-    <div class="article-wrap">
-      <a class="article-back" href="#blog">&larr; Terug naar het magazine</a>
-      <div class="article-body" id="articleBody"></div>
+    <div class="article-layout">
+      <div class="article-main">
+        <a class="article-back" href="#blog">&larr; Terug naar het magazine</a>
+        <div class="article-body" id="articleBody"></div>
+        <div class="article-cta">
+          <div>
+            <strong>Niet zeker welk product bij je past?</strong>
+            <p>Op elke productpagina staat waar de formule voor bedoeld is, hoe je hem gebruikt en wat erin zit. Kom je er niet uit? Mail ons gerust.</p>
+          </div>
+          <a class="btn btn-dark" href="#shop">Bekijk het assortiment</a>
+        </div>
+      </div>
+      <aside class="article-side" id="articleSide"></aside>
     </div>
     <div class="article-related">
       <div class="container">
@@ -1745,7 +1844,7 @@
         </div>
         <div class="footer-bottom">
           <div>&copy; 2026 Ontlast.nl</div>
-          <div>info@ontlast.nl &middot; Nederland</div>
+          <div>info@ontlast.nl &middot; Nederland &middot; <a id="cookieSettings" style="cursor:pointer;text-decoration:underline;">Cookie-instellingen</a></div>
         </div>
       </div>
     </footer>
@@ -1779,6 +1878,26 @@
 
 <div class="toast" id="toast"></div>
 
+<!-- ============ 15% POPUP ============ -->
+<div class="promo-pop" id="promoPop" role="dialog" aria-modal="true" aria-label="15% korting op je eerste bestelling">
+  <div class="promo-card">
+    <button class="promo-close" id="promoClose" aria-label="Sluiten">&times;</button>
+    <div class="promo-img"><img src="./assets/img/edit/vezels-ontbijt.webp" alt="" /></div>
+    <div class="promo-body">
+      <span class="promo-eyebrow">Welkom bij ontlast.nl</span>
+      <h3>15% korting op je eerste bestelling</h3>
+      <p>Meld je aan voor onze nieuwsbrief met praktische tips voor je spijsvertering. Je kortingscode staat meteen in beeld.</p>
+      <form class="promo-form" id="promoForm">
+        <input type="email" name="E-mailadres" id="promoEmail" placeholder="Jouw e-mailadres" required />
+        <button type="submit" class="btn btn-dark">Ja, stuur mijn code</button>
+      </form>
+      <div class="promo-done" id="promoDone">Gelukt! Gebruik code <strong>WELKOM15</strong> bij het afrekenen — 15% korting op je eerste bestelling.</div>
+      <p class="promo-small">Eenmalig te gebruiken. Je kunt je altijd met één klik uitschrijven.</p>
+      <button type="button" class="promo-no" id="promoNo">Nee, bedankt</button>
+    </div>
+  </div>
+</div>
+
 <div class="cookie-bar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Wij gebruiken cookies">
   <div class="container cookie-inner">
     <div class="cookie-copy"><strong>Wij gebruiken cookies</strong><p>Deze site gebruikt functionele cookies om je winkelwagen te laten werken, en analytische cookies om de site te verbeteren. Jij bepaalt wat je toestaat.</p></div>
@@ -1787,6 +1906,7 @@
       <button class="cookie-btn primary" id="cookieAccept">Alles accepteren</button>
     </div>
   </div>
+</div>
 
 <script src="blog.js"></script>
 
@@ -1979,6 +2099,62 @@
     grid.innerHTML = "";
     blogList().slice(0, 3).forEach(function(a){ grid.appendChild(buildBlogCard(a)); });
   }
+  function buildArticleSide(a, bodyEl){
+    var side = document.getElementById("articleSide");
+    if(!side) return;
+    var html = "";
+
+    /* inhoudsopgave */
+    var hs = bodyEl.querySelectorAll("h2");
+    if(hs.length > 1){
+      var items = "";
+      for(var i = 0; i < hs.length; i++){
+        hs[i].id = "sec-" + i;
+        items += '<li><a data-sec="sec-' + i + '">' + hs[i].textContent + '</a></li>';
+      }
+      html += '<div class="side-card"><h3 class="side-h">In dit artikel</h3><ol class="toc-list">' + items + '</ol></div>';
+    }
+
+    /* producten uit de shop */
+    var wanted = BLOG_CAT_TO_SHOP[a.category] || "Darmondersteuning";
+    var pool = PRODUCTS.filter(function(p){ return p.category === wanted && !p.soldOut; });
+    if(pool.length < 3){
+      PRODUCTS.forEach(function(p){ if(!p.soldOut && pool.indexOf(p) === -1 && pool.length < 3) pool.push(p); });
+    }
+    if(pool.length){
+      var rows = "";
+      pool.slice(0, 3).forEach(function(p){
+        rows += '<div class="side-prod" data-slug="' + p.slug + '">' +
+                  '<img src="' + p.images[0] + '" alt="' + p.name.replace(/"/g, "&quot;") + '" loading="lazy" />' +
+                  '<div><div class="sp-t">' + p.name + '</div><div class="sp-p">' + fmtPrice(p.price) + '</div></div>' +
+                '</div>';
+      });
+      html += '<div class="side-card"><h3 class="side-h">Uit onze shop</h3>' + rows +
+              '<a class="side-link" data-shop="1">Bekijk alle producten &rarr;</a></div>';
+    }
+
+    /* 15% korting */
+    html += '<div class="side-card side-nb"><h3 class="side-h">15% korting</h3>' +
+            '<p>Meld je aan voor de nieuwsbrief van Ontlast.nl en ontvang 15% korting op je eerste bestelling.</p>' +
+            '<a class="side-btn" data-promo="1">Ja, ik wil korting</a></div>';
+
+    side.innerHTML = html;
+
+    side.querySelectorAll(".toc-list a").forEach(function(el){
+      el.addEventListener("click", function(){
+        var t = document.getElementById(el.getAttribute("data-sec"));
+        if(t) window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 96, behavior: "smooth" });
+      });
+    });
+    side.querySelectorAll(".side-prod").forEach(function(el){
+      el.addEventListener("click", function(){ window.location.hash = "#product/" + el.getAttribute("data-slug"); });
+    });
+    var shopLink = side.querySelector("[data-shop]");
+    if(shopLink) shopLink.addEventListener("click", function(){ window.location.hash = "#shop"; });
+    var promoLink = side.querySelector("[data-promo]");
+    if(promoLink) promoLink.addEventListener("click", function(){ if(window.openPromo15) window.openPromo15(true); });
+  }
+
   function renderArticle(slug){
     var arts = blogList();
     var a = null;
@@ -1993,17 +2169,19 @@
         '<h1>' + a.title + '</h1>' +
         '<div class="blog-meta">' + fmtBlogDate(a.date) + ' &middot; ' + a.readMinutes + ' min lezen</div>' +
       '</div></div>';
-    document.getElementById("articleBody").innerHTML = a.bodyHtml;
+    var bodyEl = document.getElementById("articleBody");
+    bodyEl.innerHTML = a.bodyHtml;
+    buildArticleSide(a, bodyEl);
     /* passende producten */
     var wrap = document.getElementById("articleProducts");
     if(wrap){
       wrap.innerHTML = "";
       var wanted = BLOG_CAT_TO_SHOP[a.category] || "Darmondersteuning";
       var pool = PRODUCTS.filter(function(p){ return p.category === wanted && !p.soldOut; });
-      if(pool.length < 3){
-        PRODUCTS.forEach(function(p){ if(!p.soldOut && pool.indexOf(p) === -1 && pool.length < 3) pool.push(p); });
+      if(pool.length < 4){
+        PRODUCTS.forEach(function(p){ if(!p.soldOut && pool.indexOf(p) === -1 && pool.length < 4) pool.push(p); });
       }
-      pool.slice(0, 3).forEach(function(p){ wrap.appendChild(buildProductCard(p)); });
+      pool.slice(0, 4).forEach(function(p){ wrap.appendChild(buildProductCard(p)); });
     }
     /* verder lezen */
     var more = document.getElementById("articleMore");
@@ -2608,8 +2786,8 @@
   }
 
   /* ---------- CHECKOUT ---------- */
-  var DISCOUNT_CODE = "C410";
-  var DISCOUNT_PCT = 0.10;
+  var DISCOUNT_CODE = "WELKOM15";
+  var DISCOUNT_PCT = 0.15;
   var VAT_RATE = 0.21;
   var FREE_SHIPPING_THRESHOLD = 60;
 
@@ -2886,6 +3064,45 @@
   router();
 
   /* ---------- COOKIE BAR ---------- */
+  /* ---------- 15% POPUP ---------- */
+  (function(){
+    var pop=document.getElementById("promoPop");
+    if(!pop) return;
+    var KEY="ontlastPromo15", shown=false;
+    function seen(){ try{ var v=localStorage.getItem(KEY); if(!v) return false;
+      return (Date.now()-parseInt(v,10)) < 30*24*3600*1000; }catch(e){ return false; } }
+    function mark(){ try{ localStorage.setItem(KEY, String(Date.now())); }catch(e){} }
+    function open(force){
+      if(pop.classList.contains("show")) return;
+      if(!force && (seen() || shown)) return;
+      if(!force && /^#(checkout|cart)/.test(location.hash||"")) return;
+      shown=true; pop.classList.add("show"); document.body.style.overflow="hidden";
+    }
+    function close(){ pop.classList.remove("show"); document.body.style.overflow=""; mark(); }
+    window.openPromo15=open;
+    document.getElementById("promoClose").addEventListener("click", close);
+    document.getElementById("promoNo").addEventListener("click", close);
+    pop.addEventListener("click", function(e){ if(e.target===pop) close(); });
+    document.addEventListener("keydown", function(e){ if(e.key==="Escape" && pop.classList.contains("show")) close(); });
+    var form=document.getElementById("promoForm");
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      if(typeof sendMail==="function") sendMail(form, "Nieuwsbriefinschrijving via 15%-popup");
+      document.getElementById("promoDone").classList.add("show");
+      form.style.display="none"; mark();
+      setTimeout(function(){ pop.classList.remove("show"); document.body.style.overflow=""; }, 4000);
+    });
+    var cookieSettled=function(){ try{ return !!localStorage.getItem("cookieConsent"); }catch(e){ return true; } };
+    if(!seen()){
+      var t=setInterval(function(){ if(cookieSettled()){ clearInterval(t); setTimeout(function(){ open(false); }, 6000); } }, 1500);
+      setTimeout(function(){ clearInterval(t); open(false); }, 45000);
+      document.addEventListener("mouseout", function(e){
+        if(!e.relatedTarget && e.clientY<=0 && cookieSettled()) open(false);
+      });
+    }
+  })();
+
+  /* ---------- COOKIE BAR ---------- */
   (function(){
     var bar=document.getElementById("cookieBar");
     if(!bar) return;
@@ -2899,12 +3116,11 @@
     if(!saved){ setTimeout(function(){bar.classList.add("show");},900); }
     document.getElementById("cookieAccept").addEventListener("click",function(){close("all");});
     document.getElementById("cookieDeny").addEventListener("click",function(){close("essential");});
+    var cs=document.getElementById("cookieSettings");
+    if(cs) cs.addEventListener("click",function(){ bar.classList.add("show"); });
   })();
 })();
 </script>
-
-
-</div>
 
 </body>
 </html>
