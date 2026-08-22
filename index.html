@@ -607,16 +607,16 @@
         <li class="nav-item">
           <a href="#products-grid" class="top-link">Shop</a>
           <div class="dropdown">
-            <a href="#category/supplementen">Supplementen</a>
-            <a href="#category/beauty-haar">Beauty &amp; Haar</a>
-            <a href="#category/afslank-balans">Afslank &amp; Balans</a>
-            <a href="#category/bundels">Bundels</a>
-            <a href="#category/accessoires">Accessoires</a>
+            <a href="#category/probiotica">Probiotica</a>
+            <a href="#category/vezels-psyllium">Vezels &amp; Psyllium</a>
+            <a href="#category/spijsverteringsenzymen">Spijsverteringsenzymen</a>
+            <a href="#category/maag-kruiden">Maag &amp; Kruiden</a>
+            <a href="#category/darmondersteuning">Darmondersteuning</a>
           </div>
         </li>
         <li class="nav-item"><a href="#ingredients" class="top-link">Ingrediënten</a></li>
-        <li class="nav-item"><a href="#volume-pricing" class="top-link">Staffelprijzen</a></li>
-        <li class="nav-item"><a href="#resellers" class="top-link">Wederverkopers</a></li>
+        <li class="nav-item"><a href="#how-to-use" class="top-link">Gebruik</a></li>
+        <li class="nav-item"><a href="#shipping" class="top-link">Verzending</a></li>
         <li class="nav-item"><a href="#contact" class="top-link">Contact</a></li>
       </ul>
     </div>
@@ -634,15 +634,15 @@
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
+    <a href="#category/probiotica">Probiotica</a>
+    <a href="#category/vezels-psyllium">Vezels &amp; Psyllium</a>
+    <a href="#category/spijsverteringsenzymen">Spijsverteringsenzymen</a>
+    <a href="#category/maag-kruiden">Maag &amp; Kruiden</a>
+    <a href="#category/darmondersteuning">Darmondersteuning</a>
     <a href="#products-grid">Alle producten</a>
-    <a href="#category/supplementen">Supplementen</a>
-    <a href="#category/beauty-haar">Beauty &amp; Haar</a>
-    <a href="#category/afslank-balans">Afslank &amp; Balans</a>
-    <a href="#category/bundels">Bundels</a>
-    <a href="#category/accessoires">Accessoires</a>
     <a href="#ingredients">Ingrediënten</a>
-    <a href="#volume-pricing">Staffelprijzen</a>
-    <a href="#resellers">Wederverkopers</a>
+    <a href="#how-to-use">Gebruik</a>
+    <a href="#shipping">Verzending</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -1529,7 +1529,7 @@
   <div class="search-inner">
     <div class="search-field">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input name="Zoek producten, ingredienten, staffelprijzen..." type="text" id="searchInput" placeholder="Zoek producten, ingredienten, staffelprijzen..." autocomplete="off">
+      <input name="Zoek op product, merk of klacht..." type="text" id="searchInput" placeholder="Zoek op product, merk of klacht..." autocomplete="off">
       <button class="search-close" id="searchClose">Close</button>
     </div>
     <div class="search-results" id="searchResults"></div>
@@ -2090,38 +2090,54 @@
 
   /* ---------- SEARCH ---------- */
   var SEARCH_INDEX = [
-    {t:"Daily Greens", s:"Supplementen", h:"#product/ontlast-organics-daily-greens", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/ontlast-sachet-v3.png?v=1765722455", k:"daily greens supplementen"},
-    {t:"Hair Growth", s:"Beauty & Haar", h:"#product/ontlast-organics-hair-growth", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/hair-1.png?v=1761826171", k:"hair growth beauty & haar"},
-    {t:"Oriental Oasis", s:"Beauty & Haar", h:"#product/ontlast-organics-oriental-oasis", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/Titel_2_d3890975-9dd2-4eb3-9046-03249a06b394.png?v=1733820396", k:"oriental oasis beauty & haar"},
-    {t:"Poeder Mixer", s:"Accessoires", h:"#product/ontlast-organics-poeder-mixer", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/MoreControl_LessCravings_CraveControl_1.png?v=1747966522", k:"poeder mixer accessoires"},
-    {t:"Silk Shine", s:"Beauty & Haar", h:"#product/ontlast-organics-silk-shine", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/Vaarwelhormonaleonevenwichtigheden_Ontdekonsrevolutionaireproduct._6.png?v=1735287924", k:"silk shine beauty & haar"},
-    {t:"Magic Magnesium", s:"Supplementen", h:"#product/ontlast-organics-magic-magnesium", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/magic-mag-1_b91e4e9a-5c56-454e-972e-39d525bb29b0.png?v=1761826171", k:"magic magnesium supplementen"},
-    {t:"Crave Control", s:"Afslank & Balans", h:"#product/ontlast-organics-crave-control", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/crave-1_c2b69093-fe77-404e-a816-5acb28a93c67.png?v=1761826163", k:"crave control afslank & balans"},
-    {t:"Glow Essence", s:"Beauty & Haar", h:"#product/ontlast-organics-glow-essence", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/Vaarwelhormonaleonevenwichtigheden_Ontdekonsrevolutionaireproduct._2_22.28.13.png?v=1733820399", k:"glow essence beauty & haar"},
-    {t:"Burn + Control Duo", s:"Bundels", h:"#product/ontlast-organics-burn-control-duo", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/Burn-and-Crave.png?v=1761847761", k:"burn + control duo bundels"},
-    {t:"Afslank + Balans Stack", s:"Bundels", h:"#product/ontlast-organics-afslank-balans-stack", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/colon-liver-burn.png?v=1761847759", k:"afslank + balans stack bundels"},
-    {t:"Darm + Detox Reset", s:"Bundels", h:"#product/ontlast-organics-darm-detox-reset", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/liver---colon---hormone---magic.png?v=1761847761", k:"darm + detox reset bundels"},
-    {t:"Stralendheid + Glanzend Haar Duo", s:"Bundels", h:"#product/ontlast-organics-stralendheid-glanzend-haar-duo", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/collagen-and-hair.png?v=1761847759", k:"stralendheid + glanzend haar duo bundels"},
-    {t:"Complete Wellness Bundle", s:"Bundels", h:"#product/ontlast-organics-complete-wellness-bundle", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/full-bundle.png?v=1761847758", k:"complete wellness bundle bundels"},
-    {t:"Burn Boost", s:"Afslank & Balans", h:"#product/ontlast-organics-burn-boost", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/burn_1.png?v=1761826169", k:"burn boost afslank & balans"},
-    {t:"Heritage Oversized Tee", s:"Accessoires", h:"#product/ontlast-organics-heritage-oversized-tee", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/Black_White_Letter_MD_Logo_Instagram_Post_2000_x_2000_px_2000_x_2000_px_2.png?v=1775675154", k:"heritage oversized tee accessoires"},
-    {t:"Liver Support", s:"Supplementen", h:"#product/ontlast-organics-liver-support", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/liver-1.png?v=1761826174", k:"liver support supplementen"},
-    {t:"Flat Belly - Colon Support", s:"Afslank & Balans", h:"#product/ontlast-organics-flat-belly-colon-support", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/colon-1_9e309bb3-9bee-498a-b654-5e9b89fb8924.png?v=1761826168", k:"flat belly - colon support afslank & balans"},
-    {t:"Hormone Support", s:"Supplementen", h:"#product/ontlast-organics-hormone-support", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/Hormone-Support.png?v=1761840561", k:"hormone support supplementen"},
-    {t:"Protein Power", s:"Supplementen", h:"#product/ontlast-organics-protein-power", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/protin-1.png?v=1773418041", k:"protein power supplementen"},
-    {t:"Collagen Care", s:"Beauty & Haar", h:"#product/ontlast-organics-collagen-care", img:"https://cdn.shopify.com/s/files/1/0554/4597/9241/files/collagen-1_370a5f65-96f5-41c3-8c0a-c9eef180e53a.png?v=1761826166", k:"collagen care beauty & haar"},
-    {t:"Staffelprijzen", s:"Zakelijk", h:"#volume-pricing", k:"bulk groothandel staffel korting prijzen aantal b2b"},
-    {t:"Offerte aanvragen", s:"Zakelijk", h:"#request-quote", k:"offerte aanvraag bulk bestelling kvk"},
-    {t:"Wederverkopers", s:"Zakelijk", h:"#resellers", k:"reseller wederverkoper dealer partner marge"},
-    {t:"Ingrediënten", s:"Product", h:"#ingredients", k:"ingredienten grondstoffen natuurlijk biologisch"},
-    {t:"Voedingswaarden", s:"Product", h:"#nutrition", k:"voedingswaarden voedingsstoffen label calorieen vitamines"},
-    {t:"Gebruik", s:"Product", h:"#how-to-use", k:"gebruik dosering hoe te gebruiken instructies"},
-    {t:"Waarschuwingen", s:"Product", h:"#warnings", k:"waarschuwingen veiligheid zwangerschap voorzichtig"},
-    {t:"FAQ", s:"Support", h:"#faq", k:"faq vragen antwoorden hulp"},
-    {t:"Contact", s:"Support", h:"#contact", k:"contact email telefoon adres nederland support"},
-    {t:"Verzending", s:"Support", h:"#shipping", k:"verzending levering bezorgen gratis"},
-    {t:"Retourneren", s:"Support", h:"#returns", k:"retour terugsturen herroeping 14 dagen"},
-    {t:"Order volgen", s:"Support", h:"#track-order", k:"order volgen tracking status bestelling"}
+    {t:"Jennah Organics — Darm + Detox Reset", s:"Darmondersteuning", h:"#product/jennah-organics-darm-detox-reset", img:"./assets/img/p/jennah-organics-darm-detox-reset-1.webp", k:"jennah organics darm detox reset darmondersteuning"},
+    {t:"Jennah Organics — Afslank + Balans Stack", s:"Darmondersteuning", h:"#product/jennah-organics-afslank-balans-stack", img:"./assets/img/p/jennah-organics-afslank-balans-stack-1.webp", k:"jennah organics afslank balans stack darmondersteuning"},
+    {t:"Jennah Organics — Crave Control", s:"Darmondersteuning", h:"#product/jennah-organics-crave-control", img:"./assets/img/p/jennah-organics-crave-control-1.webp", k:"jennah organics crave control darmondersteuning"},
+    {t:"Jennah Organics — Daily Greens", s:"Darmondersteuning", h:"#product/jennah-organics-daily-greens", img:"./assets/img/p/jennah-organics-daily-greens-1.webp", k:"jennah organics daily greens darmondersteuning"},
+    {t:"Mutant Big Greens (30 servings)", s:"Darmondersteuning", h:"#product/mutant-big-greens-30-servings", img:"./assets/img/p/mutant-big-greens-30-servings-1.webp", k:"mutant big greens 30 servings darmondersteuning"},
+    {t:"Apple Cider Vinegar (180 Caps)", s:"Darmondersteuning", h:"#product/apple-cider-vinegar-180-caps", img:"./assets/img/p/apple-cider-vinegar-180-caps-1.webp", k:"apple cider vinegar 180 caps darmondersteuning"},
+    {t:"Glutamine (60 servings)", s:"Darmondersteuning", h:"#product/glutamine-60-servings", img:"./assets/img/p/glutamine-60-servings-1.webp", k:"glutamine 60 servings darmondersteuning"},
+    {t:"Jennah Organics — Flat Belly - Colon Support", s:"Maag & Kruiden", h:"#product/jennah-organics-flat-belly-colon-support", img:"./assets/img/p/jennah-organics-flat-belly-colon-support-1.webp", k:"jennah organics flat belly colon support maag kruiden"},
+    {t:"Fenugreek 1350mg (240 Caps)", s:"Maag & Kruiden", h:"#product/fenugreek-1350mg-240-caps", img:"./assets/img/p/fenugreek-1350mg-240-caps-1.webp", k:"fenugreek 1350mg 240 caps maag kruiden"},
+    {t:"DietWorks® Cider Trim Apple Cider Vinegar (90+30 Caps)", s:"Maag & Kruiden", h:"#product/dietworks-cider-trim-apple-cider-vinegar-90-30-caps", img:"./assets/img/p/dietworks-cider-trim-apple-cider-vinegar-90-30-caps-1.webp", k:"dietworks cider trim apple cider vinegar 90 30 caps maag kruiden"},
+    {t:"Triphala 500 mg (120 Tabl)", s:"Maag & Kruiden", h:"#product/triphala-500-mg-120-tabl", img:"./assets/img/p/triphala-500-mg-120-tabl-1.webp", k:"triphala 500 mg 120 tabl maag kruiden"},
+    {t:"Oregano 450 mg (100 Veg Caps)", s:"Maag & Kruiden", h:"#product/oregano-450-mg-100-veg-caps", img:"./assets/img/p/oregano-450-mg-100-veg-caps-1.webp", k:"oregano 450 mg 100 veg caps maag kruiden"},
+    {t:"Ginger Root 550mg (100 Vcaps)", s:"Maag & Kruiden", h:"#product/ginger-root-550mg-100-vcaps", img:"./assets/img/p/ginger-root-550mg-100-vcaps-1.webp", k:"ginger root 550mg 100 vcaps maag kruiden"},
+    {t:"Slender Blend™ (1.2kg)", s:"Probiotica", h:"#product/slender-blendtm-1-2kg", img:"./assets/img/p/slender-blendtm-1-2kg-1.webp", k:"slender blend 1 2kg probiotica"},
+    {t:"8 Billion Acidophilus & Bifidus (120 Vcaps)", s:"Probiotica", h:"#product/8-billion-acidophilus-bifidus-120-vcaps", img:"./assets/img/p/8-billion-acidophilus-bifidus-120-vcaps-1.webp", k:"8 billion acidophilus bifidus 120 vcaps probiotica"},
+    {t:"BerryDophilus ™ Kids (120 Chewables)", s:"Probiotica", h:"#product/berrydophilus-tm-kids-120-chewables", img:"./assets/img/p/berrydophilus-tm-kids-120-chewables-1.webp", k:"berrydophilus kids 120 chewables probiotica"},
+    {t:"Acidophilus 4×6 (120 Vcaps)", s:"Probiotica", h:"#product/acidophilus-46-120-vcaps", img:"./assets/img/p/acidophilus-46-120-vcaps-1.webp", k:"acidophilus 4 6 120 vcaps probiotica"},
+    {t:"BerryDophilus ™ Kids (60 Chewables)", s:"Probiotica", h:"#product/berrydophilus-tm-kids-60-chewables", img:"./assets/img/p/berrydophilus-tm-kids-60-chewables-1.webp", k:"berrydophilus kids 60 chewables probiotica"},
+    {t:"Applied Nutrition Probiotic – 60 capsules", s:"Probiotica", h:"#product/applied-nutrition-probiotic-60-capsules", img:"./assets/img/p/applied-nutrition-probiotic-60-capsules-1.webp", k:"applied nutrition probiotic 60 capsules probiotica"},
+    {t:"XXL Nutrition Probiotica - 100 mld. CFU - 30 tabletten - NZVT", s:"Probiotica", h:"#product/xxl-nutrition-probiotica-100-mld-cfu-30-tabletten-nzvt", img:"./assets/img/p/xxl-nutrition-probiotica-100-mld-cfu-30-tabletten-nzvt-1.webp", k:"xxl nutrition probiotica 100 mld cfu 30 tabletten nzvt probiotica"},
+    {t:"XXL Nutrition Probiotica - 100 mld. CFU - 30 tabletten", s:"Probiotica", h:"#product/xxl-nutrition-probiotica-100-mld-cfu-30-tabletten", img:"./assets/img/p/xxl-nutrition-probiotica-100-mld-cfu-30-tabletten-1.webp", k:"xxl nutrition probiotica 100 mld cfu 30 tabletten probiotica"},
+    {t:"Super Enzymes (180 caps)", s:"Spijsverteringsenzymen", h:"#product/super-enzymes-180-caps", img:"./assets/img/p/super-enzymes-180-caps-1.webp", k:"super enzymes 180 caps spijsverteringsenzymen"},
+    {t:"Super Enzymes (180 tabs)", s:"Spijsverteringsenzymen", h:"#product/super-enzymes-180-tabs", img:"./assets/img/p/super-enzymes-180-tabs-1.webp", k:"super enzymes 180 tabs spijsverteringsenzymen"},
+    {t:"Lactase Enzym Complex 3.000 ALU (120 caps)", s:"Spijsverteringsenzymen", h:"#product/lactase-enzym-complex-3-000-alu-120-caps", img:"./assets/img/p/lactase-enzym-complex-3-000-alu-120-caps-1.webp", k:"lactase enzym complex 3 000 alu 120 caps spijsverteringsenzymen"},
+    {t:"Optimal Digestive System (90 Vcaps)", s:"Spijsverteringsenzymen", h:"#product/optimal-digestive-system-90-vcaps", img:"./assets/img/p/optimal-digestive-system-90-vcaps-1.webp", k:"optimal digestive system 90 vcaps spijsverteringsenzymen"},
+    {t:"Super Enzymes (90 caps)", s:"Spijsverteringsenzymen", h:"#product/super-enzymes-90-caps", img:"./assets/img/p/super-enzymes-90-caps-1.webp", k:"super enzymes 90 caps spijsverteringsenzymen"},
+    {t:"Betaine HCI 648mg (120 Vcaps)", s:"Spijsverteringsenzymen", h:"#product/betaine-hci-648mg-120-vcaps", img:"./assets/img/p/betaine-hci-648mg-120-vcaps-1.webp", k:"betaine hci 648mg 120 vcaps spijsverteringsenzymen"},
+    {t:"Gluten Digest (60 Veggi caps)", s:"Spijsverteringsenzymen", h:"#product/gluten-digest-60-veggi-caps", img:"./assets/img/p/gluten-digest-60-veggi-caps-1.webp", k:"gluten digest 60 veggi caps spijsverteringsenzymen"},
+    {t:"Super Enzymes (90 tabs)", s:"Spijsverteringsenzymen", h:"#product/super-enzymes-90-tabs", img:"./assets/img/p/super-enzymes-90-tabs-1.webp", k:"super enzymes 90 tabs spijsverteringsenzymen"},
+    {t:"Papaya Enzymes (180 chews)", s:"Spijsverteringsenzymen", h:"#product/papaya-enzymes-180-chews", img:"./assets/img/p/papaya-enzymes-180-chews-1.webp", k:"papaya enzymes 180 chews spijsverteringsenzymen"},
+    {t:"XXL Nutrition Lactase Enzym - 10.000 FCC - 60 capsules", s:"Spijsverteringsenzymen", h:"#product/xxl-nutrition-lactase-enzym-10-000-fcc-60-capsules", img:"./assets/img/p/xxl-nutrition-lactase-enzym-10-000-fcc-60-capsules-1.webp", k:"xxl nutrition lactase enzym 10 000 fcc 60 capsules spijsverteringsenzymen"},
+    {t:"Jennah Organics — Burn Boost", s:"Vezels & Psyllium", h:"#product/jennah-organics-burn-boost", img:"./assets/img/p/jennah-organics-burn-boost-1.webp", k:"jennah organics burn boost vezels psyllium"},
+    {t:"Chitosan (120 Veggie Caps)", s:"Vezels & Psyllium", h:"#product/chitosan-120-veggie-caps", img:"./assets/img/p/chitosan-120-veggie-caps-1.webp", k:"chitosan 120 veggie caps vezels psyllium"},
+    {t:"Glucomannan 575mg (180 Vcaps)", s:"Vezels & Psyllium", h:"#product/glucomannan-575mg-180-vcaps", img:"./assets/img/p/glucomannan-575mg-180-vcaps-1.webp", k:"glucomannan 575mg 180 vcaps vezels psyllium"},
+    {t:"Whole Psyllium Husks (454gr)", s:"Vezels & Psyllium", h:"#product/whole-psyllium-husks-454gr", img:"./assets/img/p/whole-psyllium-husks-454gr-1.webp", k:"whole psyllium husks 454gr vezels psyllium"},
+    {t:"Jennah Organics — Protein Power", s:"Vezels & Psyllium", h:"#product/jennah-organics-protein-power", img:"./assets/img/p/jennah-organics-protein-power-1.webp", k:"jennah organics protein power vezels psyllium"},
+    {t:"Whole Psyllium Husks (340gr)", s:"Vezels & Psyllium", h:"#product/whole-psyllium-husks-340gr", img:"./assets/img/p/whole-psyllium-husks-340gr-1.webp", k:"whole psyllium husks 340gr vezels psyllium"},
+    {t:"Vitisfera Fiberlin", s:"Vezels & Psyllium", h:"#product/vitisfera-fiberlin", img:"./assets/img/p/vitisfera-fiberlin-1.webp", k:"vitisfera fiberlin vezels psyllium"},
+    {t:"Tri-Fiber Complex (100 Caps)", s:"Vezels & Psyllium", h:"#product/tri-fiber-complex-100-caps", img:"./assets/img/p/tri-fiber-complex-100-caps-1.webp", k:"tri fiber complex 100 caps vezels psyllium"},
+    {t:"XXL Nutrition Psyllium Husk Vezels", s:"Vezels & Psyllium", h:"#product/xxl-nutrition-psyllium-husk-vezels", img:"./assets/img/p/xxl-nutrition-psyllium-husk-vezels-1.webp", k:"xxl nutrition psyllium husk vezels vezels psyllium"},
+    {t:"Glutamine Powder (600 gram)", s:"Darmondersteuning", h:"#product/glutamine-powder-600-gram", img:"./assets/img/p/glutamine-powder-600-gram-1.webp", k:"glutamine powder 600 gram darmondersteuning"},
+    {t:"Easy Cleanse™ AM PM (120 Veg Caps)", s:"Darmondersteuning", h:"#product/easy-cleansetm-am-pm-120-veg-caps", img:"./assets/img/p/easy-cleansetm-am-pm-120-veg-caps-1.webp", k:"easy cleanse am pm 120 veg caps darmondersteuning"},
+    {t:"Japomin Öl Tropfen (30ml)", s:"Maag & Kruiden", h:"#product/japomin-ol-tropfen-30ml", img:"./assets/img/p/japomin-ol-tropfen-30ml-1.webp", k:"japomin l tropfen 30ml maag kruiden"},
+    {t:"Probiotic Defense (90 Veggi Caps)", s:"Probiotica", h:"#product/probiotic-defense-90-veggi-caps", img:"./assets/img/p/probiotic-defense-90-veggi-caps-1.webp", k:"probiotic defense 90 veggi caps probiotica"},
+    {t:"Dexi Burn (120 caps)", s:"Probiotica", h:"#product/dexi-burn-120-caps", img:"./assets/img/p/dexi-burn-120-caps-1.webp", k:"dexi burn 120 caps probiotica"},
+    {t:"Applied Nutrition Digestive Enzyme – 60 capsules", s:"Spijsverteringsenzymen", h:"#product/applied-nutrition-digestive-enzyme-60-capsules", img:"./assets/img/p/applied-nutrition-digestive-enzyme-60-capsules-1.webp", k:"applied nutrition digestive enzyme 60 capsules spijsverteringsenzymen"},
+    {t:"Oat King 100% Whole Grain Oat Powder (4 kg)", s:"Vezels & Psyllium", h:"#product/oat-king-100-whole-grain-oat-powder-4-kg", img:"./assets/img/p/oat-king-100-whole-grain-oat-powder-4-kg-1.webp", k:"oat king 100 whole grain oat powder 4 kg vezels psyllium"},
+    {t:"Apple Fiber Pure Powder (340 g)", s:"Vezels & Psyllium", h:"#product/apple-fiber-pure-powder-340-g", img:"./assets/img/p/apple-fiber-pure-powder-340-g-1.webp", k:"apple fiber pure powder 340 g vezels psyllium"}
   ];
   var searchPanel=document.getElementById("searchPanel");
   var searchOverlay=document.getElementById("searchOverlay");
@@ -2144,7 +2160,7 @@
     }) : SEARCH_INDEX.slice(0,6);
     searchCur=list; searchSel=0;
     if(!list.length){
-      searchResults.innerHTML='<div class="search-empty">Geen resultaten voor &ldquo;'+q+'&rdquo;. Probeer &ldquo;bundel&rdquo;, &ldquo;collageen&rdquo; of een productnaam.</div>';
+      searchResults.innerHTML='<div class="search-empty">Geen resultaten voor &ldquo;'+q+'&rdquo;. Probeer &ldquo;probiotica&rdquo;, &ldquo;psyllium&rdquo; of een productnaam.</div>';
       return;
     }
     var html='<div class="search-hint">'+(q?"Resultaten":"Populair")+'</div>';
