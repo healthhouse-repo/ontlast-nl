@@ -1,0 +1,20 @@
+<!doctype html><meta charset="utf-8"><title>mt</title>
+<style>html,body{margin:0;background:#333}iframe{width:390px;height:844px;border:0;display:block}</style>
+<iframe id="f" src="index.html"></iframe>
+<script>
+window.go=function(h){return new Promise(r=>{const f=document.getElementById('f');f.src='index.html'+h;f.onload=()=>setTimeout(r,900);});};
+window.scan=function(){
+  const f=document.getElementById('f'), w=f.contentWindow, d=f.contentDocument, vw=w.innerWidth;
+  const out=[];
+  d.querySelectorAll('*').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.width===0&&r.height===0) return;
+    if(r.right>vw+1||r.left<-1){
+      const cs=w.getComputedStyle(el);
+      if(cs.position==='fixed') return;
+      out.push(el.tagName+'.'+((el.className&&el.className.toString?el.className.toString():'').trim().replace(/\s+/g,'.').slice(0,45))+' ['+Math.round(r.left)+'→'+Math.round(r.right)+' w'+Math.round(r.width)+']');
+    }
+  });
+  return {hash:w.location.hash, vw:vw, docW:d.documentElement.scrollWidth, bodyW:d.body.scrollWidth, n:out.length, items:out.slice(0,25)};
+};
+</script>
