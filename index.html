@@ -780,6 +780,38 @@
     .article-body{font-size:15.5px;}
   }
 
+  
+  /* ---------- MOBIEL-CORRECTIES (23 aug) ---------- */
+  @media(max-width:760px){
+    html,body{max-width:100%;overflow-x:hidden;}
+    .container{padding:0 16px;}
+    main,section,footer,.hero,.products-section,.category-section{max-width:100%;}
+
+    /* producttegels: 2 naast elkaar i.p.v. horizontale carrousel */
+    .product-scroll{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
+      overflow-x:visible;padding-bottom:0;scroll-snap-type:none;
+    }
+    .product-scroll .product-card{flex:none;width:auto;min-width:0;padding:14px 12px;}
+    .product-card img{height:140px;margin-bottom:12px;}
+    .product-card h4{font-size:13px;line-height:1.32;min-height:36px;overflow-wrap:anywhere;}
+    .product-card .price{font-size:15px;margin-bottom:12px;}
+    .product-card .btn{padding:11px 6px;font-size:11px;letter-spacing:0;}
+    .product-card .badge-corner{top:8px;left:8px;font-size:9.5px;padding:3px 7px;}
+
+    /* grote sfeerfoto weg op mobiel */
+    .feature-split .img-half{display:none;}
+    .feature-split .text-half{min-width:0;padding:46px 20px;}
+
+    /* niets mag buiten beeld vallen */
+    .footer-grid{grid-template-columns:repeat(2,1fr);gap:24px;}
+    .footer-grid a,.footer-grid h5,.cat-tile-label{overflow-wrap:anywhere;}
+    input,select,textarea,table{max-width:100%;}
+    .products-section{padding:54px 0;}
+    .cat-tile{min-height:210px;}
+  }
+  /* mobiel uitklapmenu sloot niet aan op de header */
+  .mobile-menu{top:76px;}
   </style>
 </head>
 <body>
@@ -799,6 +831,8 @@
             <a href="#category/spijsverteringsenzymen">Spijsverteringsenzymen</a>
             <a href="#category/maag-kruiden">Maag &amp; Kruiden</a>
             <a href="#category/darmondersteuning">Darmondersteuning</a>
+    <a href="#category/magnesium">Magnesium</a>
+            <a href="#category/magnesium">Magnesium</a>
           </div>
         </li>
         <li class="nav-item"><a href="#ingredients" class="top-link">Ingrediënten</a></li>
@@ -828,6 +862,7 @@
     <a href="#category/spijsverteringsenzymen">Spijsverteringsenzymen</a>
     <a href="#category/maag-kruiden">Maag &amp; Kruiden</a>
     <a href="#category/darmondersteuning">Darmondersteuning</a>
+    <a href="#category/magnesium">Magnesium</a>
     <a href="#products-grid">Alle producten</a>
     <a href="#ingredients">Ingrediënten</a>
     <a href="#how-to-use">Gebruik</a>
@@ -886,6 +921,10 @@
           <div class="cat-tile" data-target="#category/darmondersteuning">
             <img src="./assets/img/cat/darmondersteuning.webp" alt="Darmondersteuning" loading="lazy" />
             <div class="cat-tile-label">Darmondersteuning</div>
+          </div>
+          <div class="cat-tile" data-target="#category/magnesium">
+            <img src="./assets/img/cat/magnesium.webp" alt="Magnesium" loading="lazy" />
+            <div class="cat-tile-label">Magnesium</div>
           </div>
         </div>
       </div>
@@ -1077,6 +1116,7 @@
           <tr><td><strong>Spijsverteringsenzymen</strong></td><td>Protease, lipase, amylase, lactase</td><td>Ondersteunen de afbraak van eiwitten, vetten, koolhydraten en melksuiker bij de maaltijd.</td></tr>
           <tr><td><strong>Maag &amp; Kruiden</strong></td><td>Gember, pepermuntolie, betaïne HCl</td><td>Veel gebruikt bij een vol of onrustig gevoel na het eten.</td></tr>
           <tr><td><strong>Darmondersteuning</strong></td><td>L-glutamine, groentepoeders, reinigingsformules</td><td>Aanvulling op een routine gericht op de darmgezondheid.</td></tr>
+          <tr><td><strong>Magnesium</strong></td><td>Magnesiumcitraat, -bisglycinaat, -malaat, -oxide</td><td>Draagt bij aan een normale spierwerking en een normale energiestofwisseling. Citraat is de best opneembare vorm.</td></tr>
         </tbody>
       </table>
       <p>Exacte ingrediëntenlijsten en hoeveelheden per product staan altijd op de verpakking en op de productpagina.</p>
@@ -1823,7 +1863,7 @@
         <div class="footer-grid">
           <div>
             <h5>Shop</h5>
-            <ul><li><a href="#category/probiotica">Probiotica</a></li><li><a href="#category/vezels-psyllium">Vezels &amp; Psyllium</a></li><li><a href="#category/spijsverteringsenzymen">Spijsverteringsenzymen</a></li><li><a href="#category/maag-kruiden">Maag &amp; Kruiden</a></li><li><a href="#category/darmondersteuning">Darmondersteuning</a></li></ul>
+            <ul><li><a href="#category/probiotica">Probiotica</a></li><li><a href="#category/vezels-psyllium">Vezels &amp; Psyllium</a></li><li><a href="#category/spijsverteringsenzymen">Spijsverteringsenzymen</a></li><li><a href="#category/maag-kruiden">Maag &amp; Kruiden</a></li><li><a href="#category/darmondersteuning">Darmondersteuning</a></li><li><a href="#category/magnesium">Magnesium</a></li></ul>
           </div>
           <div>
             <h5>Product</h5>
@@ -1915,6 +1955,16 @@
   "use strict";
 
   var PRODUCTS = [
+    { slug:"xxl-nutrition-magnesium-citraat-200-mg-100-tabletten", name:"XXL Nutrition Magnesium Citraat - 200 mg - 100 tabletten", category:"Magnesium", badge:"Magnesium", price:10.40, soldOut:false, images:["./assets/img/p/xxl-nutrition-magnesium-citraat-200-mg-100-tabletten-1.webp"], shortDesc:"Magnesiumcitraat met 200 mg elementair magnesium per tablet — de best opneembare vorm.", longDescHtml:"<p>Magnesiumcitraat is een organisch gebonden vorm van magnesium die het lichaam goed opneemt. Per tablet krijg je 200 mg elementair magnesium.</p>\n<ul>\n<li>200 mg elementair magnesium per tablet</li>\n<li>Citraatvorm — goed opneembaar</li>\n<li>100 tabletten, ruim drie maanden bij 1 per dag</li>\n<li>Draagt bij aan een normale werking van de spieren en het zenuwstelsel</li>\n</ul>\n<p><strong>Gebruik:</strong> 1 tablet per dag met een groot glas water, bij voorkeur bij een maaltijd.</p>", variants:[{label:"Standaard",price:10.40}] },
+    { slug:"mybodyfuel-magnesium-citraat-200-mg-60-tabletten", name:"MyBodyFuel Magnesium Citraat 200 mg - 60 Tabletten", category:"Magnesium", badge:"Magnesium", price:11.95, soldOut:false, images:["./assets/img/p/mybodyfuel-magnesium-citraat-200-mg-60-tabletten-1.webp"], shortDesc:"Compacte pot magnesiumcitraat met 200 mg per tablet — makkelijk instapproduct.", longDescHtml:"<p>Voordelig instapproduct met magnesiumcitraat, de vorm die het lichaam het beste opneemt. 60 tabletten van 200 mg elementair magnesium.</p>\n<ul>\n<li>200 mg elementair magnesium per tablet</li>\n<li>Citraatvorm — goed opneembaar</li>\n<li>60 tabletten per pot</li>\n<li>Draagt bij aan een normale energiestofwisseling</li>\n</ul>\n<p><strong>Gebruik:</strong> 1 tablet per dag met water bij een maaltijd.</p>", variants:[{label:"Standaard",price:11.95}] },
+    { slug:"xxl-nutrition-magnesium-citraat-200mg-100-tabletten-nzvt", name:"XXL Nutrition Magnesium Citraat - 200mg - 100 tabletten - NZVT", category:"Magnesium", badge:"Magnesium", price:16.10, soldOut:false, images:["./assets/img/p/xxl-nutrition-magnesium-citraat-200mg-100-tabletten-nzvt-1.webp"], shortDesc:"NZVT-gekeurd magnesiumcitraat: getest op verboden stoffen, 200 mg per tablet.", longDescHtml:"<p>Dezelfde goed opneembare magnesiumcitraat, maar dan met NZVT-keurmerk: elke batch is getest op verboden stoffen. Voor iedereen die zeker wil weten wat er in de pot zit.</p>\n<ul>\n<li>NZVT-gekeurd — getest op doping en verontreinigingen</li>\n<li>200 mg elementair magnesium per tablet</li>\n<li>Citraatvorm — goed opneembaar</li>\n<li>100 tabletten per pot</li>\n</ul>\n<p><strong>Gebruik:</strong> 1 tablet per dag met water bij een maaltijd.</p>", variants:[{label:"Standaard",price:16.10}] },
+    { slug:"triple-magnesium-complex-400mg-100-caps", name:"Triple Magnesium Complex 400mg (100 Caps)", category:"Magnesium", badge:"Magnesium", price:19.14, soldOut:false, images:["./assets/img/p/triple-magnesium-complex-400mg-100-caps-1.webp"], shortDesc:"Drie magnesiumvormen in één capsule: citraat, oxide en aspartaat — 400 mg per portie.", longDescHtml:"<p>Complex met drie verschillende magnesiumvormen naast elkaar. Doordat elke vorm anders wordt opgenomen, dekt dit complex een breed spectrum in één capsule.</p>\n<ul>\n<li>400 mg elementair magnesium per portie</li>\n<li>Combinatie van magnesiumcitraat, -oxide en -aspartaat</li>\n<li>100 capsules per pot</li>\n<li>Draagt bij aan een normale werking van spieren en zenuwstelsel</li>\n</ul>\n<p><strong>Gebruik:</strong> 1 capsule per dag met water bij een maaltijd.</p>", variants:[{label:"Standaard",price:19.14}] },
+    { slug:"quamtrax-chelated-magnesium-bisglycinate-90-caps", name:"Quamtrax Chelated Magnesium Bisglycinate - 90 caps", category:"Magnesium", badge:"Magnesium", price:21.99, soldOut:false, images:["./assets/img/p/quamtrax-chelated-magnesium-bisglycinate-90-caps-1.webp"], shortDesc:"Magnesiumbisglycinaat: de mildste vorm voor een gevoelige maag en darmen.", longDescHtml:"<p>Magnesiumbisglycinaat is gebonden aan het aminozuur glycine. Dat maakt deze vorm mild voor het maag-darmkanaal — een prettige keuze als andere magnesiumvormen te heftig aanvoelen.</p>\n<ul>\n<li>Gechelateerde vorm: mild voor maag en darmen</li>\n<li>Goed opneembaar</li>\n<li>90 capsules per pot</li>\n<li>Draagt bij aan vermindering van vermoeidheid</li>\n</ul>\n<p><strong>Gebruik:</strong> 2 capsules per dag met water, verdeeld over de dag.</p>", variants:[{label:"Standaard",price:21.99}] },
+    { slug:"magnesium-citrate-200mg-100-tabletten", name:"Magnesium Citrate 200mg (100 Tabletten)", category:"Magnesium", badge:"Magnesium", price:26.84, soldOut:false, images:["./assets/img/p/magnesium-citrate-200mg-100-tabletten-1.webp"], shortDesc:"Zuivere magnesiumcitraat, 200 mg per tablet — 100 tabletten.", longDescHtml:"<p>Zuivere magnesiumcitraat zonder overbodige toevoegingen. Citraat is de best opneembare magnesiumvorm en daarmee de meest gekozen variant.</p>\n<ul>\n<li>200 mg elementair magnesium per tablet</li>\n<li>Vegetarisch en zonder onnodige vulstoffen</li>\n<li>100 tabletten per pot</li>\n<li>Draagt bij aan een normale energiestofwisseling</li>\n</ul>\n<p><strong>Gebruik:</strong> 1 tot 2 tabletten per dag met water bij een maaltijd.</p>", variants:[{label:"Standaard",price:26.84}] },
+    { slug:"magnesium-citrate-400mg-120-veg-caps", name:"Magnesium Citrate 400mg (120 Veg Caps)", category:"Magnesium", badge:"Magnesium", price:26.84, soldOut:false, images:["./assets/img/p/magnesium-citrate-400mg-120-veg-caps-1.webp"], shortDesc:"Hoge dosering magnesiumcitraat: 400 mg per portie in plantaardige capsules.", longDescHtml:"<p>Ruim gedoseerde magnesiumcitraat in plantaardige capsules. Met 400 mg per portie dek je de volledige dagelijkse aanbeveling.</p>\n<ul>\n<li>400 mg elementair magnesium per portie</li>\n<li>Plantaardige capsules — geschikt voor veganisten</li>\n<li>120 capsules per pot</li>\n<li>Draagt bij aan een normale werking van de spieren</li>\n</ul>\n<p><strong>Gebruik:</strong> 3 capsules per dag met water bij een maaltijd, of verdeeld over de dag.</p>", variants:[{label:"Standaard",price:26.84}] },
+    { slug:"magnesium-citrate-pure-powder-227-gram", name:"Magnesium Citrate Pure Powder (227 gram)", category:"Magnesium", badge:"Magnesium", price:26.84, soldOut:false, images:["./assets/img/p/magnesium-citrate-pure-powder-227-gram-1.webp"], shortDesc:"Puur magnesiumcitraatpoeder — zelf doseren, oplosbaar in water.", longDescHtml:"<p>Puur magnesiumcitraatpoeder zonder smaakstoffen, zoetstoffen of vulstoffen. Je bepaalt zelf hoeveel je neemt en lost het simpelweg op in water of sap.</p>\n<ul>\n<li>100% magnesiumcitraat, geen toevoegingen</li>\n<li>Zelf te doseren met de meegeleverde maatschep</li>\n<li>227 gram per pot</li>\n<li>Lost snel op in water</li>\n</ul>\n<p><strong>Gebruik:</strong> los een afgestreken maatschep op in een groot glas water en drink dit dagelijks.</p>", variants:[{label:"Standaard",price:26.84}] },
+    { slug:"liquid-magnesium-237ml", name:"Liquid Magnesium (237ml)", category:"Magnesium", badge:"Magnesium", price:31.24, soldOut:false, images:["./assets/img/p/liquid-magnesium-237ml-1.webp"], shortDesc:"Vloeibaar magnesium — makkelijk in te nemen, snel opneembaar.", longDescHtml:"<p>Vloeibaar magnesium voor wie geen tabletten of capsules wil slikken. De vloeibare vorm is direct beschikbaar voor het lichaam en eenvoudig te doseren.</p>\n<ul>\n<li>Vloeibare vorm — geen tabletten slikken</li>\n<li>Nauwkeurig te doseren</li>\n<li>237 ml per flacon</li>\n<li>Draagt bij aan vermindering van vermoeidheid</li>\n</ul>\n<p><strong>Gebruik:</strong> volg de dosering op de verpakking; goed schudden voor gebruik.</p>", variants:[{label:"Standaard",price:31.24}] },
+    { slug:"jennah-organics-magic-magnesium", name:"Jennah Organics - Magic Magnesium", category:"Magnesium", badge:"Magnesium", price:34.00, soldOut:false, images:["./assets/img/p/jennah-organics-magic-magnesium-1.webp"], shortDesc:"Jennah Organics Magic Magnesium: magnesium voor ontspanning, rust en herstel.", longDescHtml:"<p>Magic Magnesium van Jennah Organics is samengesteld rondom ontspanning en nachtrust. Magnesium speelt een rol bij de normale werking van het zenuwstelsel en de spieren, en bij het verminderen van vermoeidheid.</p>\n<ul>\n<li>Ondersteunt ontspanning en een goede nachtrust</li>\n<li>Draagt bij aan een normale spierwerking</li>\n<li>Helpt vermoeidheid en moeheid verminderen</li>\n<li>Van het Jennah Organics-assortiment</li>\n</ul>\n<p><strong>Gebruik:</strong> neem dagelijks de aanbevolen dosering met water, bij voorkeur in de avond.</p>\n<p><strong>Beschikbaar in:</strong> 1 PACK, 2 PACK, 3 PACK</p>", variants:[{label:"Standaard",price:34.00}] },
     { slug:"jennah-organics-darm-detox-reset", name:"Jennah Organics — Darm + Detox Reset", category:"Darmondersteuning", badge:"Darmsupport", price:147.00, soldOut:false, images:["./assets/img/p/jennah-organics-darm-detox-reset-1.webp"], shortDesc:"Jennah Organics — Darm + Detox Reset is een biologische bundel met magnesium.", longDescHtml:"<p>4-in-1 bundel die het lichaam van binnenuit ondersteunt: Flat Belly - Colon Support voor de spijsvertering, Hormone Support voor de hormonale balans, Magic Magnesium voor ontspanning en Liver Support voor de leverfunctie.</p>\n<ul>\n<li>Flat Belly - Colon Support – ondersteunt een regelmatige spijsvertering</li>\n<li>Hormone Support – ondersteunt de hormonale balans</li>\n<li>Magic Magnesium – ondersteunt ontspanning en slaap</li>\n<li>Liver Support – ondersteunt de leverfunctie en energie</li>\n</ul>\n<p>Voor het beste resultaat wordt aangeraden de vier producten dagelijks en consistent te gebruiken.</p>", variants:[{label:"Standaard",price:147.00}] },
     { slug:"jennah-organics-afslank-balans-stack", name:"Jennah Organics — Afslank + Balans Stack", category:"Darmondersteuning", badge:"Darmsupport", price:112.00, soldOut:false, images:["./assets/img/p/jennah-organics-afslank-balans-stack-1.webp"], shortDesc:"Jennah Organics — Afslank + Balans Stack is een biologische bundel voedingssupplementen.", longDescHtml:"<p>3-in-1 bundel die de spijsvertering, stofwisseling en leverfunctie ondersteunt: Flat Belly - Colon Support, Burn Boost en Liver Support samen in één pakket.</p>\n<ul>\n<li>Flat Belly - Colon Support – ondersteunt de spijsvertering</li>\n<li>Burn Boost – ondersteunt de stofwisseling</li>\n<li>Liver Support – ondersteunt de leverfunctie</li>\n</ul>\n<p>Voor het beste resultaat wordt aangeraden de drie producten dagelijks en consistent te gebruiken.</p>", variants:[{label:"Standaard",price:112.00}] },
     { slug:"jennah-organics-crave-control", name:"Jennah Organics — Crave Control", category:"Darmondersteuning", badge:"Darmsupport", price:44.00, soldOut:false, images:["./assets/img/p/jennah-organics-crave-control-1.webp"], shortDesc:"Jennah Organics — Crave Control is een biologisch voedingssupplement in capsulevorm.", longDescHtml:"<p>Plantaardige capsules ontwikkeld tegen zoete trek en snackdrang. De formule, met onder meer groene thee-extract, ondersteunt een stabiele bloedsuikerspiegel, de vetverbranding en de spijsvertering.</p>\n<ul>\n<li>Helpt het hongergevoel te verminderen</li>\n<li>Ondersteunt een stabiele bloedsuikerspiegel</li>\n<li>Bevat groene thee-extract (EGCG)</li>\n</ul>\n<p><strong>Gebruik:</strong> neem dagelijks 2 capsules in met water, bij voorkeur na een maaltijd en niet op een lege maag. Combineer dit product niet op dezelfde dag met andere producten die groene thee-extract bevatten.</p>\n<p><strong>Beschikbaar in:</strong> 1 PACK, 2 PACK, 3 PACK</p>", variants:[{label:"Standaard",price:44.00}] },
@@ -1969,6 +2019,7 @@
     "Vezels & Psyllium": [{title:"Oplosbare en onoplosbare vezels",text:"Psyllium, glucomannaan en appelvezel: elk met een eigen rol in je darmen."},{title:"Zwelt op met vocht",text:"Drink er altijd ruim water bij, dan doen de vezels hun werk."},{title:"Neutraal van smaak",text:"Roer het door water, yoghurt of een smoothie."},{title:"Rustig opbouwen",text:"Begin met een halve dosering en bouw in een week op."}],
     "Spijsverteringsenzymen": [{title:"Bij zware maaltijden",text:"Enzymen die helpen bij de afbraak van eiwitten, vetten en koolhydraten."},{title:"Lactase bij zuivel",text:"Speciaal voor wie moeite heeft met melksuiker."},{title:"Gluten- en plantenenzymen",text:"Gerichte formules voor specifieke gevoeligheden."},{title:"Innemen bij de maaltijd",text:"Werkt het beste als je ze mét je eten inneemt."}],
     "Maag & Kruiden": [{title:"Beproefde kruiden",text:"Gember, pepermuntolie, oregano en triphala: al eeuwen in gebruik."},{title:"Rust in de maag",text:"Voor dat volle, opgeblazen gevoel na het eten."},{title:"Appelazijn in capsules",text:"De klassieker, zonder de zure smaak."},{title:"Kleine dosering, groot gemak",text:"Handzame capsules of druppels voor onderweg."}],
+    "Magnesium": [{title:"Citraat = best opneembaar",text:"Magnesiumcitraat wordt door het lichaam het makkelijkst opgenomen."},{title:"Van tablet tot poeder",text:"Kies de vorm die bij jouw routine past: tablet, capsule, poeder of vloeibaar."},{title:"Combineert prima",text:"Goed te combineren met vezels en probiotica."},{title:"Eerlijk over verwachtingen",text:"Magnesium werkt het best naast voldoende water, vezels en beweging."}],
     "Darmondersteuning": [{title:"Breed ondersteunend",text:"Greens, glutamine en reinigingsformules voor je dagelijkse routine."},{title:"Combineert prima",text:"Goed te combineren met probiotica of vezels."},{title:"Van poeder tot capsule",text:"Kies de vorm die bij jouw routine past."},{title:"Eerlijk over verwachtingen",text:"Supplementen werken het best naast goede voeding, water en beweging."}]
   };
 
@@ -1977,7 +2028,8 @@
     { slug: "vezels-psyllium", name: "Vezels & Psyllium" },
     { slug: "spijsverteringsenzymen", name: "Spijsverteringsenzymen" },
     { slug: "maag-kruiden", name: "Maag & Kruiden" },
-    { slug: "darmondersteuning", name: "Darmondersteuning" }
+    { slug: "darmondersteuning", name: "Darmondersteuning" },
+    { slug: "magnesium", name: "Magnesium" }
   ];
   function categorySlug(name){
     var found = CATEGORY_LIST.find(function(c){ return c.name === name; });
@@ -2607,6 +2659,16 @@
 
   /* ---------- SEARCH ---------- */
   var SEARCH_INDEX = [
+    {t:"XXL Nutrition Magnesium Citraat - 200 mg - 100 tabletten", s:"Magnesium", h:"#product/xxl-nutrition-magnesium-citraat-200-mg-100-tabletten", img:"./assets/img/p/xxl-nutrition-magnesium-citraat-200-mg-100-tabletten-1.webp", k:"xxl nutrition magnesium citraat 200 mg 100 tabletten magnesium ontlasting stoelgang"},
+    {t:"MyBodyFuel Magnesium Citraat 200 mg - 60 Tabletten", s:"Magnesium", h:"#product/mybodyfuel-magnesium-citraat-200-mg-60-tabletten", img:"./assets/img/p/mybodyfuel-magnesium-citraat-200-mg-60-tabletten-1.webp", k:"mybodyfuel magnesium citraat 200 mg 60 tabletten magnesium ontlasting stoelgang"},
+    {t:"XXL Nutrition Magnesium Citraat - 200mg - 100 tabletten - NZVT", s:"Magnesium", h:"#product/xxl-nutrition-magnesium-citraat-200mg-100-tabletten-nzvt", img:"./assets/img/p/xxl-nutrition-magnesium-citraat-200mg-100-tabletten-nzvt-1.webp", k:"xxl nutrition magnesium citraat 200mg 100 tabletten nzvt magnesium ontlasting stoelgang"},
+    {t:"Triple Magnesium Complex 400mg (100 Caps)", s:"Magnesium", h:"#product/triple-magnesium-complex-400mg-100-caps", img:"./assets/img/p/triple-magnesium-complex-400mg-100-caps-1.webp", k:"triple magnesium complex 400mg 100 caps magnesium ontlasting stoelgang"},
+    {t:"Quamtrax Chelated Magnesium Bisglycinate - 90 caps", s:"Magnesium", h:"#product/quamtrax-chelated-magnesium-bisglycinate-90-caps", img:"./assets/img/p/quamtrax-chelated-magnesium-bisglycinate-90-caps-1.webp", k:"quamtrax chelated magnesium bisglycinate 90 caps magnesium ontlasting stoelgang"},
+    {t:"Magnesium Citrate 200mg (100 Tabletten)", s:"Magnesium", h:"#product/magnesium-citrate-200mg-100-tabletten", img:"./assets/img/p/magnesium-citrate-200mg-100-tabletten-1.webp", k:"magnesium citrate 200mg 100 tabletten magnesium ontlasting stoelgang"},
+    {t:"Magnesium Citrate 400mg (120 Veg Caps)", s:"Magnesium", h:"#product/magnesium-citrate-400mg-120-veg-caps", img:"./assets/img/p/magnesium-citrate-400mg-120-veg-caps-1.webp", k:"magnesium citrate 400mg 120 veg caps magnesium ontlasting stoelgang"},
+    {t:"Magnesium Citrate Pure Powder (227 gram)", s:"Magnesium", h:"#product/magnesium-citrate-pure-powder-227-gram", img:"./assets/img/p/magnesium-citrate-pure-powder-227-gram-1.webp", k:"magnesium citrate pure powder 227 gram magnesium ontlasting stoelgang"},
+    {t:"Liquid Magnesium (237ml)", s:"Magnesium", h:"#product/liquid-magnesium-237ml", img:"./assets/img/p/liquid-magnesium-237ml-1.webp", k:"liquid magnesium 237ml magnesium ontlasting stoelgang"},
+    {t:"Jennah Organics - Magic Magnesium", s:"Magnesium", h:"#product/jennah-organics-magic-magnesium", img:"./assets/img/p/jennah-organics-magic-magnesium-1.webp", k:"jennah organics magic magnesium magnesium ontlasting stoelgang"},
     {t:"Jennah Organics — Darm + Detox Reset", s:"Darmondersteuning", h:"#product/jennah-organics-darm-detox-reset", img:"./assets/img/p/jennah-organics-darm-detox-reset-1.webp", k:"jennah organics darm detox reset darmondersteuning"},
     {t:"Jennah Organics — Afslank + Balans Stack", s:"Darmondersteuning", h:"#product/jennah-organics-afslank-balans-stack", img:"./assets/img/p/jennah-organics-afslank-balans-stack-1.webp", k:"jennah organics afslank balans stack darmondersteuning"},
     {t:"Jennah Organics — Crave Control", s:"Darmondersteuning", h:"#product/jennah-organics-crave-control", img:"./assets/img/p/jennah-organics-crave-control-1.webp", k:"jennah organics crave control darmondersteuning"},
