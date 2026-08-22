@@ -1,0 +1,420 @@
+[
+  {
+    "id": 49283,
+    "name": "Jennah Organics — Daily Greens",
+    "slug": "jennah-organics-daily-greens",
+    "price": "39.00",
+    "regular_price": "39.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Gezondheidsproducten",
+      "Nieuwe Producten",
+      "Vitamines"
+    ],
+    "short_description": "<p>Jennah Organics — Daily Greens is een biologisch voedingssupplement, verkrijgbaar als packvariant.</p>\n",
+    "description": "<p>Supergreens-poeder met meer dan 20 plantaardige ingrediënten, waaronder cichorei-inuline als prebioticum en chlorella. De formule bevat daarnaast bessen- en vruchtenextracten, wortel- en groente-extracten en botanische polyfenolcomplexen (MitoGreens®).</p>\n<ul>\n<li>Ondersteunt een normale spijsvertering dankzij cichorei-inuline</li>\n<li>Chlorella helpt de darmmicroflora in balans te houden</li>\n<li>Draagt bij aan het natuurlijke afweersysteem</li>\n<li>Rijk aan natuurlijke antioxidanten uit bessen en groenten</li>\n</ul>\n<p><strong>Gebruik:</strong> scheur een sachet open, roer de inhoud door een glas of fles water tot het volledig is opgelost en drink dagelijks.</p>\n<p><strong>Beschikbaar in:</strong> 1 PACK, 2 PACK, 3 PACK</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/jennah-sachet-v3.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49281,
+    "name": "Jennah Organics — Hair Growth",
+    "slug": "jennah-organics-hair-growth",
+    "price": "39.00",
+    "regular_price": "39.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Gezondheidsproducten",
+      "Nieuwe Producten",
+      "Vitamines"
+    ],
+    "short_description": "<p>Jennah Organics — Hair Growth is een biologisch voedingssupplement met zink in capsules.</p>\n",
+    "description": "<p>Plantaardige capsules met angelica-extract, wheat germ extract (natuurlijke bron van spermidine), pea seedling extract (erwtenscheuten), ijzer, biotine, zink en koper. De formule ondersteunt de natuurlijke haargroei en draagt bij aan het behoud van een normale huid en normale nagels.</p>\n<ul>\n<li>Biotine draagt bij aan de haarfollikelvorming</li>\n<li>Ondersteunt de regulering van overtollig talg bij de haarwortels</li>\n<li>Vitamines en mineralen voor huid en nagels</li>\n</ul>\n<p><strong>Gebruik:</strong> neem 1 capsule voor het ontbijt en 1 capsule voor het slapengaan. Overschrijd de aanbevolen dagelijkse dosering van 2 capsules niet.</p>\n<p><strong>Beschikbaar in:</strong> 1 PACK, 2 PACK, 3 PACK</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/hair-1.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49279,
+    "name": "Jennah Organics — Oriental Oasis",
+    "slug": "jennah-organics-oriental-oasis",
+    "price": "29.95",
+    "regular_price": "29.95",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Gezondheidsproducten",
+      "Nieuwe Producten",
+      "Vitamines"
+    ],
+    "short_description": "<p>Jennah Organics — Oriental Oasis is een biologisch voedingssupplement van Jennah Organics.</p>\n",
+    "description": "<p>Verzorgende olie voor huid en haar met arganolie en druivenpitolie, aangevuld met een warme geurcombinatie van jasmijn, muskus en amber. De lichte, snel absorberende olie voedt en hydrateert de huid en herstelt droog of beschadigd haar.</p>\n<ul>\n<li>Arganolie is rijk aan antioxidanten en essentiële vetzuren</li>\n<li>Druivenpitolie hydrateert zonder vet gevoel</li>\n<li>Voedt en verstevigt het haar, met een natuurlijke glans</li>\n<li>100% biologische ingrediënten, zonder synthetische toevoegingen</li>\n</ul>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/Titel_2_d3890975-9dd2-4eb3-9046-03249a06b394.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49277,
+    "name": "Jennah Organics — Poeder Mixer",
+    "slug": "jennah-organics-poeder-mixer",
+    "price": "9.95",
+    "regular_price": "9.95",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Accessoires / Shakers",
+      "Nieuwe Producten"
+    ],
+    "short_description": "<p>Jennah Organics — Poeder Mixer is een accessoire voor het mengen van poederproducten.</p>\n",
+    "description": "<p>Handige mixer voor het snel en gelijkmatig oplossen van poederproducten zoals Daily Greens en Protein Power in water of melk. Compact en praktisch voor thuis, op het werk of onderweg.</p>\n<ul>\n<li>Voor het snel en klontvrij mengen van poeders</li>\n<li>Compact en makkelijk mee te nemen</li>\n<li>Geschikt voor gebruik met de meeste poederproducten</li>\n</ul>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/MoreControl_LessCravings_CraveControl_1.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49275,
+    "name": "Jennah Organics — Silk Shine",
+    "slug": "jennah-organics-silk-shine",
+    "price": "27.95",
+    "regular_price": "27.95",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Gezondheidsproducten",
+      "Nieuwe Producten",
+      "Vitamines"
+    ],
+    "short_description": "<p>Jennah Organics — Silk Shine is een biologisch voedingssupplement, verkrijgbaar als packvariant.</p>\n",
+    "description": "<p>Haarserum met pure arganolie, cyclopentasiloxaan, dimethiconol, bètacaroteen en vitamine E, ontwikkeld om droog en beschadigd haar te herstellen en een zijdezachte glans te geven.</p>\n<ul>\n<li>Arganolie voedt het haar intensief en beschermt tegen uitdroging</li>\n<li>Zorgt voor een pluisvrij, glad resultaat zonder het haar te verzwaren</li>\n<li>Vitamine E beschermt tegen invloeden van buitenaf</li>\n<li>Lichtgewicht formule, geschikt voor alle haartypes</li>\n</ul>\n<p><strong>Gebruik:</strong> breng 2–4 druppels aan op nat of handdoekdroog haar, verdeel gelijkmatig tussen de handpalmen en breng aan op het middengedeelte en de punten van het haar.</p>\n<p><strong>Beschikbaar in:</strong> 1 Pack, 2 Pack, 3 Pack</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/Vaarwelhormonaleonevenwichtigheden_Ontdekonsrevolutionaireproduct._6.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49273,
+    "name": "Jennah Organics — Magic Magnesium",
+    "slug": "jennah-organics-magic-magnesium",
+    "price": "34.00",
+    "regular_price": "34.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Gezondheidsproducten",
+      "Nieuwe Producten",
+      "Vitamines"
+    ],
+    "short_description": "<p>Jennah Organics — Magic Magnesium combineert magnesiumcitraat en elektrolyten in een biologische formule.</p>\n",
+    "description": "<p>Poederformule met drie vormen van magnesium (citraat, glycinaat en gluconaat) en L-theanine uit groene thee-extract, aangevuld met bosbessen- en rodebietsappoeder. Draagt bij aan een normale spierfunctie en werking van het zenuwstelsel, en helpt vermoeidheid te verminderen.</p>\n<ul>\n<li>Triple magnesiumformule met L-theanine</li>\n<li>Ondersteunt het energieniveau en de elektrolytenbalans</li>\n<li>Draagt bij aan een normale werking van het zenuwstelsel</li>\n</ul>\n<p><strong>Gebruik:</strong> meng 1 afgestreken maatschep (4 g) met 200 ml water, roer goed door en drink eenmaal daags, bij voorkeur 's avonds voor het slapengaan.</p>\n<p><strong>Beschikbaar in:</strong> 1 POTJE, 2 POTJES, 3 POTJES</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/magic-mag-1_b91e4e9a-5c56-454e-972e-39d525bb29b0.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49271,
+    "name": "Jennah Organics — Crave Control",
+    "slug": "jennah-organics-crave-control",
+    "price": "44.00",
+    "regular_price": "44.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Gezondheidsproducten",
+      "Nieuwe Producten",
+      "Vitamines"
+    ],
+    "short_description": "<p>Jennah Organics — Crave Control is een biologisch voedingssupplement in capsulevorm.</p>\n",
+    "description": "<p>Plantaardige capsules ontwikkeld tegen zoete trek en snackdrang. De formule, met onder meer groene thee-extract, ondersteunt een stabiele bloedsuikerspiegel, de vetverbranding en de spijsvertering.</p>\n<ul>\n<li>Helpt het hongergevoel te verminderen</li>\n<li>Ondersteunt een stabiele bloedsuikerspiegel</li>\n<li>Bevat groene thee-extract (EGCG)</li>\n</ul>\n<p><strong>Gebruik:</strong> neem dagelijks 2 capsules in met water, bij voorkeur na een maaltijd en niet op een lege maag. Combineer dit product niet op dezelfde dag met andere producten die groene thee-extract bevatten.</p>\n<p><strong>Beschikbaar in:</strong> 1 PACK, 2 PACK, 3 PACK</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/crave-1_c2b69093-fe77-404e-a816-5acb28a93c67.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49269,
+    "name": "Jennah Organics — Glow Essence",
+    "slug": "jennah-organics-glow-essence",
+    "price": "27.95",
+    "regular_price": "27.95",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Gezondheidsproducten",
+      "Nieuwe Producten",
+      "Vitamines"
+    ],
+    "short_description": "<p>Jennah Organics — Glow Essence is een biologisch voedingssupplement met vitamine C.</p>\n",
+    "description": "<p>Verhelderend en hydraterend gezichtsserum met een lichte, niet-vette geltextuur. Bevat vitamine C, hyaluronzuur, pro-vitamine B5 en vitamine E, ontwikkeld om de huid te revitaliseren en intens te hydrateren.</p>\n<ul>\n<li>Vitamine C en hyaluronzuur voor een egale teint en diepe hydratatie</li>\n<li>Ondersteunt de huidbarrière en natuurlijke bescherming tegen omgevingsinvloeden</li>\n<li>Pro-vitamine B5 kalmeert en herstelt de huid</li>\n</ul>\n<p><strong>Gebruik:</strong> reinig het gezicht grondig, breng enkele druppels aan op de vingertoppen en masseer zachtjes in op gezicht en hals. Sluit af met een dagelijkse moisturizer.</p>\n<p><strong>Beschikbaar in:</strong> 1 Pack, 2 Pack, 3 Pack</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/Vaarwelhormonaleonevenwichtigheden_Ontdekonsrevolutionaireproduct._2_22.28.13.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49267,
+    "name": "Jennah Organics — Burn + Control Duo",
+    "slug": "jennah-organics-burn-control-duo",
+    "price": "73.00",
+    "regular_price": "73.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Bundels",
+      "Gezondheidsproducten",
+      "Nieuwe Producten"
+    ],
+    "short_description": "<p>Jennah Organics — Burn + Control Duo is een biologische bundel met twee producten.</p>\n",
+    "description": "<p>Duo-bundel die de eetlustbeheersing en stofwisseling ondersteunt: Crave Control helpt het hongergevoel te verminderen, terwijl Burn Boost de stofwisseling stimuleert.</p>\n<ul>\n<li>Crave Control – ondersteunt de eetlustbeheersing</li>\n<li>Burn Boost – ondersteunt de stofwisseling</li>\n</ul>\n<p>Voor het beste resultaat wordt aangeraden beide producten dagelijks en consistent te gebruiken.</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/Burn-and-Crave.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49265,
+    "name": "Jennah Organics — Afslank + Balans Stack",
+    "slug": "jennah-organics-afslank-balans-stack",
+    "price": "112.00",
+    "regular_price": "112.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Bundels",
+      "Gezondheidsproducten",
+      "Nieuwe Producten"
+    ],
+    "short_description": "<p>Jennah Organics — Afslank + Balans Stack is een biologische bundel voedingssupplementen.</p>\n",
+    "description": "<p>3-in-1 bundel die de spijsvertering, stofwisseling en leverfunctie ondersteunt: Flat Belly - Colon Support, Burn Boost en Liver Support samen in één pakket.</p>\n<ul>\n<li>Flat Belly - Colon Support – ondersteunt de spijsvertering</li>\n<li>Burn Boost – ondersteunt de stofwisseling</li>\n<li>Liver Support – ondersteunt de leverfunctie</li>\n</ul>\n<p>Voor het beste resultaat wordt aangeraden de drie producten dagelijks en consistent te gebruiken.</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/colon-liver-burn.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49263,
+    "name": "Jennah Organics — Darm + Detox Reset",
+    "slug": "jennah-organics-darm-detox-reset",
+    "price": "147.00",
+    "regular_price": "147.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Bundels",
+      "Gezondheidsproducten",
+      "Nieuwe Producten"
+    ],
+    "short_description": "<p>Jennah Organics — Darm + Detox Reset is een biologische bundel met magnesium.</p>\n",
+    "description": "<p>4-in-1 bundel die het lichaam van binnenuit ondersteunt: Flat Belly - Colon Support voor de spijsvertering, Hormone Support voor de hormonale balans, Magic Magnesium voor ontspanning en Liver Support voor de leverfunctie.</p>\n<ul>\n<li>Flat Belly - Colon Support – ondersteunt een regelmatige spijsvertering</li>\n<li>Hormone Support – ondersteunt de hormonale balans</li>\n<li>Magic Magnesium – ondersteunt ontspanning en slaap</li>\n<li>Liver Support – ondersteunt de leverfunctie en energie</li>\n</ul>\n<p>Voor het beste resultaat wordt aangeraden de vier producten dagelijks en consistent te gebruiken.</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/liver-colon-hormone-magic.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49261,
+    "name": "Jennah Organics — Stralendheid + Glanzend Haar Duo",
+    "slug": "jennah-organics-stralendheid-glanzend-haar-duo",
+    "price": "63.00",
+    "regular_price": "63.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Bundels",
+      "Gezondheidsproducten",
+      "Nieuwe Producten"
+    ],
+    "short_description": "<p>Jennah Organics — Stralendheid + Glanzend Haar Duo: biologische duo-bundel met collageen.</p>\n",
+    "description": "<p>Duo-bundel die de natuurlijke schoonheid van binnenuit ondersteunt: Collagen Care draagt bij aan de collageenproductie en hydratatie van de huid, terwijl Hair Growth de haargroei ondersteunt en bijdraagt aan sterkere nagels.</p>\n<ul>\n<li>Collagen Care – ondersteunt collageen en hydrateert de huid</li>\n<li>Hair Growth – ondersteunt de haargroei en versterkt de nagels</li>\n</ul>\n<p>Voor het beste resultaat wordt aangeraden beide producten dagelijks en consistent te gebruiken.</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/collagen-and-hair.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49259,
+    "name": "Jennah Organics — Complete Wellness Bundle",
+    "slug": "jennah-organics-complete-wellness-bundle",
+    "price": "257.00",
+    "regular_price": "257.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Bundels",
+      "Gezondheidsproducten",
+      "Nieuwe Producten"
+    ],
+    "short_description": "<p>Jennah Organics — Complete Wellness Bundle is een biologische supplementenbundel.</p>\n",
+    "description": "<p>Compleet dagelijks wellnesspakket dat acht formules combineert ter ondersteuning van energie, hormonale balans, spijsvertering, schoonheid en metabolisme.</p>\n<ul>\n<li>Burn Boost – ondersteunt de stofwisseling</li>\n<li>Collagen Care – ondersteunt de huid van binnenuit</li>\n<li>Magic Magnesium – ondersteunt ontspanning en slaap</li>\n<li>Hair Growth – ondersteunt haar en nagels</li>\n<li>Crave Control – ondersteunt eetlustbeheersing</li>\n<li>Hormone Support – ondersteunt de hormonale balans</li>\n<li>Flat Belly - Colon Support – ondersteunt de spijsvertering</li>\n<li>Liver Support – ondersteunt de leverfunctie</li>\n</ul>\n<p>Een compleet systeem om dagelijks als onderdeel van een gezonde routine te gebruiken.</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/full-bundle.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49257,
+    "name": "Jennah Organics — Burn Boost",
+    "slug": "jennah-organics-burn-boost",
+    "price": "44.00",
+    "regular_price": "44.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Fatburners",
+      "Nieuwe Producten",
+      "Vitaliteit"
+    ],
+    "short_description": "<p>Jennah Organics — Burn Boost is een biologisch voedingssupplement met cafeïne.</p>\n",
+    "description": "<p>Cafeïnevrije fat burner met prebiotica, ontwikkeld om het vetmetabolisme en de energieproductie te ondersteunen en bij te dragen aan een gezonde darmflora.</p>\n<ul>\n<li>Cafeïnevrij, geschikt voor dagelijks gebruik</li>\n<li>Ondersteunt het vetmetabolisme en de energieproductie</li>\n<li>Bevat prebiotica voor een gezonde darmflora</li>\n</ul>\n<p><strong>Gebruik:</strong> gebruik dagelijks als onderdeel van een gezonde routine. Voor het beste resultaat wordt aangeraden het product minimaal 4 tot 6 weken consistent te gebruiken.</p>\n<p><strong>Beschikbaar in:</strong> 1 PACK, 2 PACK, 3 PACK</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/burn_1.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49255,
+    "name": "Jennah Organics — Heritage Oversized Tee",
+    "slug": "jennah-organics-heritage-oversized-tee",
+    "price": "29.00",
+    "regular_price": "29.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Kleding",
+      "Nieuwe Producten"
+    ],
+    "short_description": "<p>Jennah Organics — Heritage Oversized Tee: biologisch oversized T-shirt met een heritage-uitstraling.</p>\n",
+    "description": "<p>Oversized unisex T-shirt van zware katoenkwaliteit, ontworpen als eerbetoon aan de eenvoud van de natuur en het ambacht achter de productlijn. Zacht, ademend en geschikt voor dagelijks gebruik.</p>\n<ul>\n<li>Oversized fit voor een moderne, premium look</li>\n<li>Zware katoenkwaliteit voor een luxe gevoel</li>\n<li>Zacht en ademend materiaal</li>\n<li>Stijlvolle back-print met de tekst &quot;Tended by hands, nourished by nature&quot;</li>\n<li>Unisex ontwerp, duurzame afwerking</li>\n</ul>\n<p><strong>Beschikbaar in:</strong> XS, S, M, L, XL</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/Black_White_Letter_MD_Logo_Instagram_Post_2000_x_2000_px_2000_x_2000_px_2.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49253,
+    "name": "Jennah Organics — Liver Support",
+    "slug": "jennah-organics-liver-support",
+    "price": "39.00",
+    "regular_price": "39.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Gezondheidsproducten",
+      "Liver Support",
+      "Nieuwe Producten"
+    ],
+    "short_description": "<p>Jennah Organics — Liver Support is een biologisch supplement met zink als dagelijkse aanvulling.</p>\n",
+    "description": "<p>Formule met plantenextracten, vitaminen en mineralen zoals mariadistel, schisandra, kurkuma, kudzu, cholinebitartraat en zink. De formule is ontwikkeld om de leverfunctie te ondersteunen, bij te dragen aan een gezonde vetstofwisseling en cellen te helpen beschermen tegen oxidatieve stress.</p>\n<ul>\n<li>Mariadistel en choline dragen bij aan een normale leverfunctie</li>\n<li>Kurkuma ondersteunt de vetstofwisseling</li>\n<li>Zink beschermt cellen tegen oxidatieve schade</li>\n<li>Aangevuld met de B-vitamines</li>\n</ul>\n<p><strong>Gebruik:</strong> volg de aanbevolen dagelijkse dosering op de verpakking, bij voorkeur dagelijks en consistent voor het beste resultaat.</p>\n<p><strong>Beschikbaar in:</strong> 1 PACK, 2 PACK, 3 PACK</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/liver-1.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49251,
+    "name": "Jennah Organics — Flat Belly - Colon Support",
+    "slug": "jennah-organics-flat-belly-colon-support",
+    "price": "44.00",
+    "regular_price": "44.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Best verkocht",
+      "Gezondheidsproducten",
+      "Nieuwe Producten",
+      "Vitamines"
+    ],
+    "short_description": "<p>Jennah Organics — Flat Belly &#8211; Colon Support: biologisch supplement in capsulevorm.</p>\n",
+    "description": "<p>Botanische formule met Cassia angustifolia, klitwortel, Aloë vera, gember, cascara en psyllium husk. Deze mix ondersteunt een comfortabele en regelmatige spijsvertering en draagt bij aan de natuurlijke balans van de darmen.</p>\n<ul>\n<li>Cassia angustifolia ondersteunt een gezonde spijsvertering</li>\n<li>Aloë vera draagt bij aan de darmbalans</li>\n<li>Gember ondersteunt een comfortabel spijsverteringsgevoel</li>\n</ul>\n<p><strong>Gebruik:</strong> start met 1 capsule per dag met water, bij voorkeur voor het slapengaan. Bij goede verdraagzaamheid kan de dosering worden verhoogd naar 2 capsules per dag. Gebruik niet meer dan 3 capsules per dag.</p>\n<p><strong>Beschikbaar in:</strong> 1 Potje, 2 Potjes, 3 Potjes</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/colon-1_9e309bb3-9bee-498a-b654-5e9b89fb8924.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49249,
+    "name": "Jennah Organics — Hormone Support",
+    "slug": "jennah-organics-hormone-support",
+    "price": "44.00",
+    "regular_price": "44.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Gezondheidsproducten",
+      "Nieuwe Producten",
+      "Vitamines"
+    ],
+    "short_description": "<p>Jennah Organics — Hormone Support is een biologisch voedingssupplement met magnesium.</p>\n",
+    "description": "<p>Plantaardige capsules met inositol, saffraan, magnesiumglycinaat en vitamine B6. De formule is ontwikkeld om de hormonale balans te ondersteunen en draagt bij aan een normale psychologische functie, mentale focus en een normaal energieleverend metabolisme.</p>\n<ul>\n<li>Met inositol en saffraanextract</li>\n<li>Magnesium en vitamine B6 ondersteunen het energieniveau</li>\n<li>Draagt bij aan een normale stofwisseling</li>\n</ul>\n<p><strong>Gebruik:</strong> neem dagelijks 2 capsules tijdens een maaltijd, bij voorkeur 1 capsule 's ochtends en 1 capsule 's avonds. Overschrijd de aanbevolen dagelijkse dosering niet.</p>\n<p><strong>Beschikbaar in:</strong> 1 Potje, 2 Potjes, 3 Potjes</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/Hormone-Support.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49247,
+    "name": "Jennah Organics — Protein Power",
+    "slug": "jennah-organics-protein-power",
+    "price": "32.00",
+    "regular_price": "32.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Eiwitten",
+      "Nieuwe Producten"
+    ],
+    "short_description": "<p>Jennah Organics — Protein Power: biologische, suikervrije proteinmix verkrijgbaar in multipacks.</p>\n",
+    "description": "<p>Compleet plantaardig eiwitpoeder samengesteld uit 10 biologische bronnen, waaronder tarweproteïne, voor een breed aminozuurprofiel. De formule bevat psylliumvezels ter ondersteuning van een normale darmwerking en is gezoet met steviolglycosiden, zonder toegevoegde suikers.</p>\n<ul>\n<li>10 plantaardige eiwitbronnen voor een compleet aminozuurprofiel</li>\n<li>Met psylliumvezels voor de spijsvertering</li>\n<li>Zonder toegevoegde suikers</li>\n</ul>\n<p><strong>Gebruik:</strong> meng 20 g poeder (circa 1 maatschep) met 200–300 ml water, (plantaardige) melk of een drank naar keuze. Gebruik 1–2 porties per dag, bij voorkeur na fysieke inspanning of als aanvulling bij een maaltijd.</p>\n<p><strong>Beschikbaar in:</strong> 1 PACK, 2 PACK, 3 PACK</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/protin-1.png"
+    ],
+    "attributes": []
+  },
+  {
+    "id": 49245,
+    "name": "Jennah Organics — Collagen Care",
+    "slug": "jennah-organics-collagen-care",
+    "price": "39.00",
+    "regular_price": "39.00",
+    "sku": "",
+    "type": "simple",
+    "stock_status": "instock",
+    "categories": [
+      "Gezondheidsproducten",
+      "Nieuwe Producten",
+      "Vitamines"
+    ],
+    "short_description": "<p>Jennah Organics — Collagen Care: vegan en biologisch collageensupplement voor je dagelijkse aanvulling.</p>\n",
+    "description": "<p>Vegan schoonheidscomplex op basis van plantaardige extracten van Tremella (Silver Ear Mushroom), Rosa Roxburghii, Golden Oyster Mushroom en Giant Knotweed (natuurlijke bron van resveratrol). De formule is samengesteld om de huid van binnenuit te ondersteunen en draagt bij aan een gezonde cardiovasculaire functie.</p>\n<ul>\n<li>100% plantaardige formule, zonder dierlijke collageen</li>\n<li>Bevat botanische extracten die traditioneel worden gebruikt in beautyrituelen</li>\n<li>Vrij van kunstmatige toevoegingen, vulstoffen en gluten</li>\n<li>Aangename mandarijnsmaak</li>\n</ul>\n<p><strong>Gebruik:</strong> los dagelijks één afgestreken maatlepel op in water, sap of een smoothie, bij voorkeur op een vast moment van de dag.</p>\n<p><strong>Beschikbaar in:</strong> 1 POTJE, 2 POTJES, 3 POTJES</p>\n",
+    "images": [
+      "https://thehealthhouse.nl/wp-content/uploads/2026/08/collagen-1_370a5f65-96f5-41c3-8c0a-c9eef180e53a.png"
+    ],
+    "attributes": []
+  }
+]
