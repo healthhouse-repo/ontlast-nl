@@ -248,12 +248,12 @@
   .section-heading h2{font-family:'Poppins',Georgia,serif;font-weight:400;font-size:clamp(24px,3.2vw,32px);}
   .section-heading p{margin-top:12px;font-size:15px;}
   .product-scroll{
-    display:flex;gap:24px;overflow-x:auto;padding-bottom:16px;scroll-snap-type:x mandatory;
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;overflow:visible;
   }
-  .product-scroll::-webkit-scrollbar{height:6px;}
-  .product-scroll::-webkit-scrollbar-thumb{background:var(--border-light);border-radius:4px;}
+  @media(max-width:900px){.product-scroll{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}}
+  @media(max-width:600px){.product-scroll{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}}
   .product-card{
-    flex:0 0 260px;scroll-snap-align:start;border:1px solid var(--border-light);border-radius:8px;
+    min-width:0;display:flex;flex-direction:column;border:1px solid var(--border-light);border-radius:8px;
     padding:24px;text-align:center;transition:box-shadow .2s ease, transform .2s ease;background:#fff;
     cursor:pointer;position:relative;
   }
@@ -381,16 +381,6 @@
   .pd-help{font-size:13px;padding-top:16px;color:rgba(18,33,27,.7);}
   .pd-help a{text-decoration:underline;}
   .related-wrap{padding:52px 24px 10px;}
-  @media(min-width:901px){
-    .related-wrap .product-scroll{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;overflow-x:visible;scroll-snap-type:none;padding-bottom:0;}
-    .related-wrap .product-scroll .product-card{flex:none;width:auto;min-width:0;display:flex;flex-direction:column;}
-    .related-wrap .product-scroll .product-card .btn{margin-top:auto;}
-  }
-  @media(min-width:601px) and (max-width:900px){
-    .related-wrap .product-scroll{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;overflow-x:visible;scroll-snap-type:none;padding-bottom:0;}
-    .related-wrap .product-scroll .product-card{flex:none;width:auto;min-width:0;display:flex;flex-direction:column;}
-    .related-wrap .product-scroll .product-card .btn{margin-top:auto;}
-  }
   .related-wrap h3{font-family:'Poppins',Georgia,serif;font-weight:400;font-size:26px;margin:0 0 18px;}
   .pd-specs{width:100%;border-collapse:collapse;font-size:13.5px;margin:4px 0 14px;}
   .pd-specs th,.pd-specs td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border-light);vertical-align:top;}
@@ -839,12 +829,7 @@
     main,section,footer,.hero,.products-section,.category-section{max-width:100%;}
 
     /* producttegels: 2 naast elkaar i.p.v. horizontale carrousel */
-    .product-scroll{
-      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
-      overflow-x:visible;padding-bottom:0;scroll-snap-type:none;
-    }
-    .product-scroll .product-card{flex:none;width:auto;min-width:0;padding:14px 12px;
-      display:flex;flex-direction:column;}
+    .product-scroll .product-card{padding:14px 12px;}
     .product-scroll .product-card .btn{margin-top:auto;}
     .product-card img{height:140px;margin-bottom:12px;}
     .product-card h4{font-size:13px;line-height:1.32;min-height:36px;overflow-wrap:anywhere;}
@@ -945,7 +930,6 @@
     <a href="#category/maag-kruiden">Maag &amp; Kruiden</a>
     <a href="#category/darmondersteuning">Darmondersteuning</a>
     <a href="#category/magnesium">Magnesium</a>
-    <a href="#products-grid">Alle producten</a>
     <a href="#ingredients">Ingrediënten</a>
     <a href="#how-to-use">Gebruik</a>
     <a href="#shipping">Verzending</a>
