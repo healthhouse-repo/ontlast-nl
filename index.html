@@ -2495,7 +2495,16 @@
   var currentVariantIndex = 0;
 
   function renderProductPage(slug){
-    var prod = getProductBySlug(slug) || PRODUCTS[0];
+    var prod = getProductBySlug(slug);
+    if(!prod){
+      /* onbekende/verouderde productlink: stuur naar de shop i.p.v. het verkeerde product tonen */
+      if(!window.__thhPnfGuard){
+        window.__thhPnfGuard = 1;
+        setTimeout(function(){ window.__thhPnfGuard = 0; }, 600);
+        window.location.hash = "#products-grid";
+      }
+      return;
+    }
     currentProduct = prod;
     currentVariantIndex = 0;
     state.quantity = 1;
