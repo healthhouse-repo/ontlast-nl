@@ -818,7 +818,10 @@
     .site-form,.checkout-block,.form-row,.form-group{max-width:100%;min-width:0;}
     .form-row{flex-direction:column;gap:0;}
     .form-row .form-group,.form-row-3 .form-group,.track-form .form-group{min-width:0;width:100%;}
-    .order-summary,.summary-card{min-width:0;max-width:100%;}
+    .order-summary,.summary-card,.order-summary-box{min-width:0;max-width:100%;}
+    .discount-row{flex-wrap:wrap;}
+    .discount-row input{flex:1 1 100%;min-width:0;width:100%;}
+    .discount-row .btn{flex:1 1 100%;width:100%;margin-top:8px;}
   }
   /* mobiel uitklapmenu sloot niet aan op de header */
   .mobile-menu{top:76px;}
@@ -2943,7 +2946,7 @@
       if(code === DISCOUNT_CODE){
         state.checkout.discountApplied = true;
         state.checkout.discountCode = code;
-        discountMsgEl.textContent = "Kortingscode toegepast: 10% korting!";
+        discountMsgEl.textContent = "Kortingscode toegepast: 15% korting!";
         discountMsgEl.className = "discount-msg ok";
       } else {
         state.checkout.discountApplied = false;
