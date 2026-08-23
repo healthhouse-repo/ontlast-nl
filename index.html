@@ -820,6 +820,8 @@
     .site-form,.checkout-block,.form-row,.form-group{max-width:100%;min-width:0;}
     .form-row{flex-direction:column;gap:0;}
     .form-row .form-group,.form-row-3 .form-group,.track-form .form-group{min-width:0;width:100%;}
+    /* inline flex-basis werd hoogte zodra de rij verticaal stapelt -> lege gaten */
+    .form-row .form-group,.form-row-3 .form-group,.track-form .form-group{flex:0 0 auto !important;}
     .order-summary,.summary-card,.order-summary-box{min-width:0;max-width:100%;}
     .discount-row{flex-wrap:wrap;}
     .discount-row input{flex:1 1 100%;min-width:0;width:100%;}
