@@ -1,4 +1,4 @@
-/* Ontlast.nl / WLL — blogartikelen. Gegenereerd, niet met de hand bewerken. */
+/* Ontlast.nl / WLL, blogartikelen. Gegenereerd, niet met de hand bewerken. */
 var BLOG = [
  {
   "slug": "magnesium-en-je-stoelgang",
