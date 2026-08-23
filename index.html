@@ -85,108 +85,128 @@
 
 
   /* ---------- SEARCH ---------- */
-  .search-overlay{
-    position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1200;
-    opacity:0;pointer-events:none;transition:opacity .18s ease;
-  }
-  .search-overlay.open{opacity:1;pointer-events:auto;}
-  .search-panel{
-    position:fixed;top:0;left:0;right:0;background:#fff;z-index:1201;
-    transform:translateY(-100%);transition:transform .22s ease;
-    box-shadow:0 8px 40px rgba(0,0,0,0.25);
-  }
-  .search-panel.open{transform:translateY(0);}
-  .search-inner{max-width:1280px;margin:0 auto;padding:26px 24px 30px;}
-  .search-field{display:flex;align-items:center;gap:14px;border-bottom:2px solid #15191D;padding-bottom:12px;}
-  .search-field svg{width:22px;height:22px;stroke:#15191D;}
-  .search-field input{
-    flex:1;border:0;outline:0;font-size:22px;font-family:'Poppins',Arial,sans-serif;
-    color:#1F1F28;background:transparent;
-  }
-  .search-close{background:none;border:0;cursor:pointer;font-size:12px;font-weight:700;
-    text-transform:uppercase;letter-spacing:.08em;color:#15191D;}
-  .search-close:hover{color:var(--ontlast-coral);}
-  .search-results{margin-top:18px;max-height:52vh;overflow-y:auto;}
-  .search-hint{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:#8A8A8A;margin-bottom:10px;}
+  /* ---------- INLINE ZOEKEN (in de hoofdbalk) ---------- */
+  /* #searchOverlay blijft in de DOM voor de bestaande JS (classList/addEventListener),
+     maar heeft geen visuele rol meer nu de zoekbalk altijd zichtbaar in de header staat. */
+  .search-overlay{display:none;}
+  .search-results{max-height:60vh;overflow-y:auto;}
+  .search-hint{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:#8A8A8A;margin:0 0 8px;padding:0 4px;}
   .search-item{
-    display:flex;align-items:center;gap:14px;padding:11px 8px;cursor:pointer;border-radius:4px;
-    border-bottom:1px solid #EEE;
+    display:flex;align-items:center;gap:14px;padding:10px 8px;cursor:pointer;border-radius:6px;
   }
   .search-item:hover,.search-item.sel{background:#F5F5F5;}
-  .search-item img{width:42px;height:42px;object-fit:contain;background:#F0F0F0;border-radius:3px;}
-  .search-item .si-title{font-weight:700;font-size:15px;color:#1F1F28;}
-  .search-item .si-sub{font-size:12px;color:#8A8A8A;text-transform:uppercase;letter-spacing:.06em;}
-  .search-empty{padding:22px 8px;color:#8A8A8A;font-size:14px;}
+  .search-item img{width:40px;height:40px;object-fit:contain;background:#F0F0F0;border-radius:4px;flex:0 0 auto;}
+  .search-item .si-title{font-weight:700;font-size:14.5px;color:#1F1F28;line-height:1.3;}
+  .search-item .si-sub{font-size:11.5px;color:#8A8A8A;text-transform:uppercase;letter-spacing:.06em;}
+  .search-empty{padding:20px 8px;color:#8A8A8A;font-size:14px;}
 
-  /* ---------- NAV ---------- */
+  /* ---------- NAV (opbouw: usp-balk / hoofdbalk met zoeken / categoriebalk) ---------- */
+  :root{ --header-h:150px; }
   .navbar{
     position:fixed;top:0;left:0;right:0;z-index:1000;
-    background:var(--nav-bg);
-    border-bottom:1px solid var(--nav-border);
     transition:box-shadow .2s ease;
   }
-  .navbar.scrolled{box-shadow:0 4px 24px rgba(46,41,48,0.10);}
-  .nav-inner{
-    display:flex;align-items:center;justify-content:space-between;
-    height:76px;
+  .navbar.scrolled{box-shadow:0 4px 24px rgba(46,41,48,0.14);}
+
+  .usp-bar{position:fixed;top:0;left:0;right:0;z-index:1001;background:var(--ontlast-black);}
+  .usp-bar-inner{
+    display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap;
+    padding:7px 24px;font-size:12.5px;color:rgba(255,255,255,0.88);
   }
-  .nav-left{display:flex;align-items:center;gap:44px;align-self:stretch;}
-  .logo-link{display:flex;align-items:center;}
-  .logo-link img{height:34px;width:auto;display:block;}
-  @media(max-width:600px){.logo-link img{height:26px;}}
-  .nav-links{display:flex;gap:32px;list-style:none;margin:0;padding:0;height:100%;}
-  .nav-item{position:relative;display:flex;align-items:center;height:100%;}
-  .nav-links a.top-link{
-    color:var(--nav-text);font-weight:700;font-size:13px;text-transform:uppercase;
-    letter-spacing:0.05em;transition:color .15s ease;position:relative;display:flex;align-items:center;height:100%;
+  .usp-item{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;}
+  .usp-item svg{width:13px;height:13px;flex:0 0 auto;stroke:var(--ontlast-teal);}
+
+  .navbar-main{background:var(--nav-bg);border-bottom:1px solid var(--nav-border);}
+  .nav-inner{display:flex;align-items:center;gap:26px;height:78px;}
+  .logo-link{display:flex;align-items:center;flex:0 0 auto;}
+
+  /* inline zoekbalk, altijd zichtbaar, gecentreerd in de hoofdbalk */
+  .nav-search{position:relative;flex:1 1 auto;max-width:640px;margin:0 auto;}
+  .nav-search-field{
+    display:flex;align-items:center;height:46px;background:#fff;border:1px solid var(--nav-border);
+    border-radius:999px;padding:0 4px 0 18px;transition:box-shadow .15s ease,border-color .15s ease;
   }
-  .nav-links a.top-link:after{
-    content:'';position:absolute;left:0;right:100%;bottom:24px;height:2px;background:var(--ontlast-coral);
-    transition:right .18s ease;
+  .nav-search-field:focus-within{border-color:var(--ontlast-teal);box-shadow:0 0 0 3px rgba(46,158,118,0.15);}
+  .nav-search-ico{width:17px;height:17px;flex:0 0 auto;stroke:#8A8A8A;}
+  .nav-search-field input{
+    flex:1;border:0;outline:0;background:transparent;height:44px;padding:0 10px;
+    font:400 14.5px 'Poppins',Arial,sans-serif;color:var(--nav-text);min-width:0;
   }
-  .nav-links a.top-link:hover{color:var(--ontlast-coral);}
-  .nav-links a.top-link:hover:after{right:0;}
-  .dropdown{
-    position:absolute;top:100%;left:0;background:#fff;min-width:240px;padding:12px 0;
-    box-shadow:0 20px 40px rgba(0,0,0,0.18);border-radius:0 0 6px 6px;
-    opacity:0;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:50;
+  .nav-search-field input::placeholder{color:#9A9A9A;}
+  .nav-search-btn{
+    flex:0 0 auto;width:38px;height:38px;border-radius:999px;background:var(--ontlast-teal);
+    color:#fff;display:flex;align-items:center;justify-content:center;transition:background .15s ease;
   }
-  .nav-item:hover .dropdown{opacity:1;pointer-events:auto;transform:translateY(0);}
-  .dropdown a{
-    display:block;padding:10px 22px;color:#1A1A1A;font-size:13px;font-weight:500;text-transform:none;
-    letter-spacing:normal;transition:background .15s ease,color .15s ease;
+  .nav-search-btn:hover{background:var(--ontlast-coral);}
+  .nav-search-btn svg{width:16px;height:16px;stroke:#fff;}
+  .nav-search-panel{
+    display:none;position:absolute;top:calc(100% + 10px);left:0;right:0;background:#fff;
+    border:1px solid var(--nav-border);border-radius:14px;box-shadow:0 20px 44px rgba(18,33,27,0.16);
+    padding:14px;z-index:1100;
   }
-  .dropdown a:hover{background:#F5F5F5;color:var(--ontlast-coral);}
-  .nav-right{display:flex;align-items:center;gap:22px;}
+  .nav-search-panel.open{display:block;}
+  .search-panel-head{display:flex;justify-content:flex-end;margin-bottom:2px;}
+  .search-close{background:none;border:0;cursor:pointer;font-size:11px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.08em;color:#9A9A9A;padding:4px 6px;}
+  .search-close:hover{color:var(--ontlast-coral);}
+
+  .nav-right{display:flex;align-items:center;gap:6px;flex:0 0 auto;}
   .icon-btn{
     background:none;color:var(--nav-text);display:flex;align-items:center;justify-content:center;
-    width:36px;height:36px;position:relative;
+    width:40px;height:40px;border-radius:999px;position:relative;transition:background .15s ease,color .15s ease;
   }
-  .icon-btn:hover{color:var(--ontlast-coral);}
+  .icon-btn:hover{background:rgba(18,33,27,0.06);color:var(--ontlast-coral);}
   .icon-btn svg{width:21px;height:21px;}
   .cart-badge{
-    position:absolute;top:-2px;right:-4px;background:var(--ontlast-coral);color:#fff;
+    position:absolute;top:3px;right:3px;background:var(--ontlast-coral);color:#fff;
     font-size:10px;font-weight:700;border-radius:50%;width:17px;height:17px;
     display:flex;align-items:center;justify-content:center;
   }
-  .hamburger{display:none;background:none;color:var(--nav-text);}
+  .hamburger{display:none;background:none;color:var(--nav-text);width:40px;height:40px;
+    align-items:center;justify-content:center;border-radius:999px;flex:0 0 auto;}
+  .hamburger:hover{background:rgba(18,33,27,0.06);}
   .hamburger svg{width:24px;height:24px;}
 
+  /* categoriebalk onder de hoofdbalk, met de bestaande categorieën/menu-items */
+  .navbar-cats{background:#fff;border-bottom:1px solid var(--nav-border);}
+  .nav-cats-inner{display:flex;align-items:stretch;justify-content:center;}
+  .nav-links{display:flex;gap:2px;list-style:none;margin:0;padding:0;height:100%;flex-wrap:wrap;justify-content:center;}
+  .nav-item{position:relative;display:flex;align-items:center;height:100%;}
+  .nav-links a.top-link{
+    color:var(--nav-text);font-weight:600;font-size:13px;
+    letter-spacing:0.01em;transition:color .15s ease;position:relative;display:flex;align-items:center;height:100%;
+    padding:13px 15px;white-space:nowrap;border-bottom:2px solid transparent;
+  }
+  .nav-links a.top-link:hover{color:var(--ontlast-coral);border-bottom-color:var(--ontlast-coral);}
+  .nav-item-sep{margin-left:10px;padding-left:8px;border-left:1px solid var(--nav-border);}
+
   @media(max-width:960px){
-    .nav-links{display:none;}
-    .hamburger{display:flex;align-items:center;justify-content:center;}
+    .navbar-cats{display:none;}
+    .hamburger{display:flex;}
   }
   .mobile-menu{
-    display:none;position:fixed;top:106px;left:0;right:0;background:var(--nav-bg);
+    display:none;position:fixed;top:var(--header-h);left:0;right:0;background:var(--nav-bg);
     z-index:999;flex-direction:column;padding:16px 24px 24px;gap:4px;
     border-top:1px solid var(--nav-border);max-height:70vh;overflow-y:auto;
   }
   .mobile-menu.open{display:flex;}
   .mobile-menu a{color:var(--nav-text);font-weight:700;text-transform:uppercase;font-size:14px;padding:14px 0;border-bottom:1px solid var(--nav-border);}
 
-  html{scroll-padding-top:90px;}
-  main{padding-top:77px;}
-  .page-header{scroll-margin-top:90px;}
+  @media(max-width:760px){
+    .usp-bar-inner{gap:0;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:6px 16px;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none;}
+    .usp-bar-inner::-webkit-scrollbar{display:none;}
+    .usp-item{margin-right:22px;}
+    .nav-inner{flex-wrap:wrap;height:auto;padding:10px 0 12px;row-gap:10px;}
+    .logo-link{order:2;}
+    .hamburger{order:1;}
+    .nav-right{order:3;margin-left:auto;}
+    .nav-search{order:4;flex:0 0 100%;max-width:none;margin:0;}
+  }
+
+  html{scroll-padding-top:var(--header-h);}
+  main{padding-top:var(--header-h);}
+  .page-header{scroll-margin-top:var(--header-h);}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -892,61 +912,83 @@
     .cookie-btn{padding:11px 8px;font-size:11px;letter-spacing:.04em;}
     footer{padding-bottom:24px;}
   }
-  /* mobiel uitklapmenu sloot niet aan op de header */
-  .mobile-menu{top:76px;}
   </style>
 </head>
 <body>
 
 
 
+<div class="usp-bar" id="uspBar">
+  <div class="container usp-bar-inner">
+    <span class="usp-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> Voor 16:00 besteld, dezelfde werkdag verzonden</span>
+    <span class="usp-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> Gratis verzending vanaf &euro;&nbsp;60,&ndash;</span>
+    <span class="usp-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> 14 dagen bedenktijd, verzending vanuit Nederland</span>
+  </div>
+</div>
+
 <nav class="navbar" id="navbar">
-  <div class="container nav-inner">
-    <div class="nav-left">
+  <div class="navbar-main">
+    <div class="container nav-inner">
+      <button class="hamburger" id="hamburgerBtn" aria-label="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
       <a href="#home" class="logo-link" aria-label="Ontlast.nl Home"><span class="wordmark">ontlast<span class="wordmark-dot">.nl</span></span></a>
+      <div class="nav-search" id="navSearchWrap">
+        <div class="nav-search-field">
+          <svg class="nav-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input name="Zoek op product, merk of klacht..." type="text" id="searchInput" placeholder="Zoek op product, merk of klacht..." autocomplete="off">
+          <button class="nav-search-btn" id="searchToggle" type="button" aria-label="Zoeken">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+        </div>
+        <div class="nav-search-panel" id="searchPanel">
+          <div class="search-panel-head"><button class="search-close" id="searchClose" type="button">Sluiten &times;</button></div>
+          <div class="search-results" id="searchResults"></div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <a class="icon-btn" href="#contact" aria-label="Klantenservice">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-1v-7h3M4 17v-5h3v7H6a2 2 0 0 1-2-2Z"/></svg>
+        </a>
+        <button class="icon-btn" id="cartToggle" aria-label="cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293A1 1 0 0 0 5.414 17H17M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>
+          <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-cats">
+    <div class="container nav-cats-inner">
       <ul class="nav-links">
-        <li class="nav-item">
-          <a href="#products-grid" class="top-link">Shop</a>
-          <div class="dropdown">
-            <a href="#category/probiotica">Probiotica</a>
-            <a href="#category/vezels-psyllium">Vezels &amp; Psyllium</a>
-            <a href="#category/spijsverteringsenzymen">Spijsverteringsenzymen</a>
-            <a href="#category/maag-kruiden">Maag &amp; Kruiden</a>
-            <a href="#category/darmondersteuning">Darmondersteuning</a>
-            <a href="#category/magnesium">Magnesium</a>
-          </div>
-        </li>
-        <li class="nav-item"><a href="#blog" class="top-link">Magazine</a></li>
+        <li class="nav-item"><a href="#products-grid" class="top-link">Alle producten</a></li>
+        <li class="nav-item"><a href="#category/probiotica" class="top-link">Probiotica</a></li>
+        <li class="nav-item"><a href="#category/vezels-psyllium" class="top-link">Vezels &amp; Psyllium</a></li>
+        <li class="nav-item"><a href="#category/spijsverteringsenzymen" class="top-link">Spijsverteringsenzymen</a></li>
+        <li class="nav-item"><a href="#category/maag-kruiden" class="top-link">Maag &amp; Kruiden</a></li>
+        <li class="nav-item"><a href="#category/darmondersteuning" class="top-link">Darmondersteuning</a></li>
+        <li class="nav-item"><a href="#category/magnesium" class="top-link">Magnesium</a></li>
+        <li class="nav-item nav-item-sep"><a href="#blog" class="top-link">Magazine</a></li>
         <li class="nav-item"><a href="#over-ons" class="top-link">Over ons</a></li>
         <li class="nav-item"><a href="#contact" class="top-link">Contact</a></li>
       </ul>
     </div>
-    <div class="nav-right">
-      <button class="icon-btn" id="searchToggle" aria-label="search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </button>
-      <button class="icon-btn" id="cartToggle" aria-label="cart">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293A1 1 0 0 0 5.414 17H17M9 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>
-        <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
-      </button>
-      <button class="hamburger" id="hamburgerBtn" aria-label="menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#category/probiotica">Probiotica</a>
-    <a href="#category/vezels-psyllium">Vezels &amp; Psyllium</a>
-    <a href="#category/spijsverteringsenzymen">Spijsverteringsenzymen</a>
-    <a href="#category/maag-kruiden">Maag &amp; Kruiden</a>
-    <a href="#category/darmondersteuning">Darmondersteuning</a>
-    <a href="#category/magnesium">Magnesium</a>
-    <a href="#products-grid">Alle producten</a>
-    <a href="#blog">Magazine</a>
-    <a href="#over-ons">Over ons</a>
-    <a href="#contact">Contact</a>
   </div>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#category/probiotica">Probiotica</a>
+  <a href="#category/vezels-psyllium">Vezels &amp; Psyllium</a>
+  <a href="#category/spijsverteringsenzymen">Spijsverteringsenzymen</a>
+  <a href="#category/maag-kruiden">Maag &amp; Kruiden</a>
+  <a href="#category/darmondersteuning">Darmondersteuning</a>
+  <a href="#category/magnesium">Magnesium</a>
+  <a href="#products-grid">Alle producten</a>
+  <a href="#blog">Magazine</a>
+  <a href="#over-ons">Over ons</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div id="searchOverlay" style="display:none"></div>
 
 <main>
 
@@ -1972,17 +2014,6 @@
 
 
 <!-- ============ CART ============ -->
-<div class="search-overlay" id="searchOverlay"></div>
-<div class="search-panel" id="searchPanel">
-  <div class="search-inner">
-    <div class="search-field">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input name="Zoek op product, merk of klacht..." type="text" id="searchInput" placeholder="Zoek op product, merk of klacht..." autocomplete="off">
-      <button class="search-close" id="searchClose">Close</button>
-    </div>
-    <div class="search-results" id="searchResults"></div>
-  </div>
-</div>
 <div class="cart-overlay" id="cartOverlay"></div>
 <div class="cart-panel" id="cartPanel">
   <div class="cart-header">
@@ -2415,6 +2446,24 @@
     if(window.scrollY > 10){ navbar.classList.add("scrolled"); }
     else { navbar.classList.remove("scrolled"); }
   });
+
+  /* ---------- HEADER-HOOGTE (usp-balk + navbar) ----------
+     De header bestaat uit meerdere gestapelde, fixed onderdelen waarvan de hoogte per
+     schermbreedte verschilt (usp-tekst kan omslaan, zoekbalk valt op mobiel op een eigen
+     regel). In plaats van overal losse pixelwaarden te synchroniseren, meten we de echte
+     hoogte en zetten die als CSS-variabele; padding-top/scroll-offsets/mobiel-menu volgen
+     daar automatisch uit mee. */
+  var uspBar = document.getElementById("uspBar");
+  function thhSyncHeaderHeight(){
+    var h = (uspBar ? uspBar.offsetHeight : 0) + (navbar ? navbar.offsetHeight : 0);
+    if(h > 0){ document.documentElement.style.setProperty("--header-h", h + "px"); }
+  }
+  thhSyncHeaderHeight();
+  if(window.requestAnimationFrame) requestAnimationFrame(thhSyncHeaderHeight);
+  setTimeout(thhSyncHeaderHeight, 150);
+  setTimeout(thhSyncHeaderHeight, 500);
+  window.addEventListener("resize", thhSyncHeaderHeight);
+  window.addEventListener("load", thhSyncHeaderHeight);
 
   /* ---------- MOBILE MENU ---------- */
   var mobileMenu = document.getElementById("mobileMenu");
@@ -2914,15 +2963,17 @@
   var searchOverlay=document.getElementById("searchOverlay");
   var searchInput=document.getElementById("searchInput");
   var searchResults=document.getElementById("searchResults");
+  var navSearchWrap=document.getElementById("navSearchWrap");
   var searchSel=0, searchCur=[];
 
+  /* De zoekbalk staat nu permanent in de hoofdbalk (net als thehealthhouse.nl);
+     open/close bepalen alleen of de resultaten-dropdown zichtbaar is. */
   function openSearch(){
-    searchPanel.classList.add("open"); searchOverlay.classList.add("open");
-    renderSearch(""); setTimeout(function(){ searchInput.focus(); }, 60);
+    searchPanel.classList.add("open"); if(searchOverlay) searchOverlay.classList.add("open");
+    renderSearch(searchInput.value); searchInput.focus();
   }
   function closeSearch(){
-    searchPanel.classList.remove("open"); searchOverlay.classList.remove("open");
-    searchInput.value="";
+    searchPanel.classList.remove("open"); if(searchOverlay) searchOverlay.classList.remove("open");
   }
   function renderSearch(q){
     q=(q||"").trim().toLowerCase();
@@ -2949,10 +3000,14 @@
     if(window.location.hash===i.h){ router(); } else { window.location.hash=i.h; }
     if(typeof i.f === "number"){ setTimeout(renderProductPage,0); }
   }
-  document.getElementById("searchToggle").addEventListener("click", openSearch);
+  document.getElementById("searchToggle").addEventListener("click", function(){
+    /* zoek-knop in de balk werkt als "submit": ga naar het geselecteerde/eerste resultaat */
+    if(searchCur.length){ gotoSearch(searchCur[searchSel]); } else { openSearch(); }
+  });
   document.getElementById("searchClose").addEventListener("click", closeSearch);
-  searchOverlay.addEventListener("click", closeSearch);
-  searchInput.addEventListener("input", function(){ renderSearch(this.value); });
+  if(searchOverlay) searchOverlay.addEventListener("click", closeSearch);
+  searchInput.addEventListener("focus", function(){ openSearch(); });
+  searchInput.addEventListener("input", function(){ renderSearch(this.value); searchPanel.classList.add("open"); });
   searchInput.addEventListener("keydown", function(e){
     if(e.key==="Enter"){ e.preventDefault(); gotoSearch(searchCur[searchSel]); }
     else if(e.key==="ArrowDown"||e.key==="ArrowUp"){
@@ -2971,6 +3026,10 @@
   document.addEventListener("keydown", function(e){
     if(e.key==="Escape"){ closeSearch(); }
     if((e.key==="k"||e.key==="K") && (e.metaKey||e.ctrlKey)){ e.preventDefault(); openSearch(); }
+  });
+  /* klik buiten de zoekbalk sluit de resultaten-dropdown (de balk zelf blijft altijd zichtbaar) */
+  document.addEventListener("click", function(e){
+    if(navSearchWrap && !navSearchWrap.contains(e.target)){ closeSearch(); }
   });
 
   function showToast(msg){
@@ -3382,8 +3441,13 @@
   }
 
   /* ---------- INIT ---------- */
+  /* Let op: renderProductPage() NIET hier zonder slug aanroepen. Zonder argument vindt
+     getProductBySlug(undefined) nooit een product, waardoor de "onbekende productlink"-tak
+     in renderProductPage() ONVOORWAARDELIJK window.location.hash = "#products-grid" zette —
+     ook op een gewone bezoek zonder hash (of #home). Dat veroorzaakte de scroll-sprong naar
+     het midden van de pagina bij het laden. router() roept renderProductPage(productSlug)
+     hieronder al correct aan, alleen wanneer je daadwerkelijk op een productpagina zit. */
   loadCart();
-  renderProductPage();
   renderCart();
   router();
 
