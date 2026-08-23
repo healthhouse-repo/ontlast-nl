@@ -184,7 +184,9 @@
   .mobile-menu.open{display:flex;}
   .mobile-menu a{color:var(--nav-text);font-weight:700;text-transform:uppercase;font-size:14px;padding:14px 0;border-bottom:1px solid var(--nav-border);}
 
-  main{padding-top:76px;}
+  html{scroll-padding-top:90px;}
+  main{padding-top:77px;}
+  .page-header{scroll-margin-top:90px;}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -2276,6 +2278,19 @@
     }
   }
 
+  /* --- Fix: browser mag scrollpositie niet herstellen bij hash-navigatie --- */
+  if ("scrollRestoration" in history) { try { history.scrollRestoration = "manual"; } catch(e){} }
+  function forceScrollTop(){
+    var cancelled = false;
+    var cancel = function(){ cancelled = true; };
+    window.addEventListener("wheel", cancel, { passive:true, once:true });
+    window.addEventListener("touchstart", cancel, { passive:true, once:true });
+    var go = function(){ if(!cancelled) window.scrollTo(0, 0); };
+    go();
+    if (window.requestAnimationFrame) requestAnimationFrame(go);
+    setTimeout(go, 60); setTimeout(go, 180); setTimeout(go, 340);
+  }
+
   function router(){
     var hash = window.location.hash || "#home";
     var pages = document.querySelectorAll(".page");
@@ -2337,10 +2352,12 @@
         window.scrollTo(0, y < 0 ? 0 : y);
       };
       doJump();
+      if(window.requestAnimationFrame) requestAnimationFrame(doJump);
       setTimeout(doJump, 70);
       setTimeout(doJump, 260);
+      setTimeout(doJump, 420);
     } else {
-      window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+      forceScrollTop();
     }
     closeMobileMenu();
   }
