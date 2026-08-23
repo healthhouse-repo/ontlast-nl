@@ -1771,7 +1771,7 @@
     </div></div>
     <div class="container content-section" style="text-align:center;">
       <div class="confirm-block show" style="max-width:560px;margin:0 auto;">
-        <strong>Ordernummer: <span id="confirmedOrderNumber">JN-000000</span></strong>
+        <strong>Ordernummer: <span id="confirmedOrderNumber">ONT-000000</span></strong>
         <p style="margin:8px 0 0;">Je ontvangt een orderbevestiging per e-mail. Vragen? Neem contact op via info@ontlast.nl.</p>
       </div>
       <div style="margin-top:28px;">
@@ -3120,7 +3120,7 @@
       state.checkout.paymentMethod = paymentMethod;
 
       var totals = calcTotals();
-      var orderNumber = "JN-" + Math.floor(100000 + Math.random() * 900000);
+      var orderNumber = "ONT-" + Math.floor(100000 + Math.random() * 900000);
 
       state.order = {
         orderNumber: orderNumber,
@@ -3164,11 +3164,82 @@
     bankBlock.style.display = order.paymentMethod === "ideal" ? "block" : "none";
   }
 
-  /* MOLLIE integration point: this function will build a Mollie payment via the
-     backend and redirect the user to the checkoutUrl returned by Mollie. */
+  /* ---------- BETALEN VIA MOLLIE ----------
+     De bestelling wordt als échte order aangemaakt op thehealthhouse.nl
+     (kanaal "ontlast") en de klant gaat door naar de Mollie-betaalpagina. */
+  var MOLLIE_ENDPOINT = "https://mollie-merkshops.vercel.app/api/create-payment";
+
+  function adresNaarKlant(adres, contact){
+    adres = adres || {};
+    var straat = (adres.street || "");
+    if(adres.addition) straat += " " + adres.addition;
+    return {
+      email: contact ? contact.email : "",
+      phone: contact ? contact.phone : "",
+      firstName: adres.firstName || "",
+      lastName: adres.lastName || "",
+      company: adres.company || "",
+      address: straat.trim(),
+      postalCode: adres.postcode || "",
+      city: adres.city || "",
+      country: adres.country || "NL"
+    };
+  }
+
   function startPayment(order){
-    /* MOLLIE integratiepunt */
-    showToast("De betaalkoppeling is binnenkort actief. Je bestelling (" + order.orderNumber + ") is opgeslagen.");
+    var btn = document.getElementById("payNowBtn");
+    var oudeTekst = btn ? btn.textContent : "";
+    if(btn){ btn.disabled = true; btn.textContent = "Bezig met betalen\u2026"; }
+
+    var regels = (order.items || []).map(function(c){
+      return {
+        name: c.name + (c.variant ? " \u2013 " + c.variant : ""),
+        slug: c.slug || "",
+        qty: c.qty,
+        price: c.price,
+        vat: 9,
+        flavor: c.variant || ""
+      };
+    });
+
+    var verzendLabel = order.shippingMethod === "pickup"
+      ? "Ophalen bij PostNL-punt"
+      : "PostNL \u2013 thuisbezorgd";
+
+    var payload = {
+      merchant: "ontlast",
+      orderNumber: order.orderNumber,
+      amount: Math.round(order.totals.total * 100) / 100,
+      customer: adresNaarKlant(order.invoiceAddress || order.shippingAddress, order.contact),
+      shippingAddress: adresNaarKlant(order.shippingAddress, order.contact),
+      items: regels,
+      shippingCost: order.totals.shipping || 0,
+      shippingMethod: verzendLabel,
+      discount: order.totals.discountAmount || 0,
+      discountLabel: order.totals.discountAmount > 0
+        ? ("Korting " + (state.checkout.discountCode || "")) : "",
+      note: order.notes || "",
+      returnBase: window.location.origin + window.location.pathname
+    };
+
+    fetch(MOLLIE_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
+      .then(function(res){
+        if(res.ok && res.j && res.j.checkoutUrl){
+          window.location.href = res.j.checkoutUrl;
+          return;
+        }
+        throw new Error((res.j && res.j.error) || "betaling kon niet worden gestart");
+      })
+      .catch(function(err){
+        if(btn){ btn.disabled = false; btn.textContent = oudeTekst; }
+        showToast("Betalen lukt nu even niet. Probeer het opnieuw of mail info@ontlast.nl.");
+        if(window.console) console.error("Mollie:", err);
+      });
   }
 
   var payNowBtn = document.getElementById("payNowBtn");
@@ -3197,6 +3268,21 @@
   renderProductPage();
   renderCart();
   router();
+
+  /* Terug vanaf Mollie: toon het ordernummer en leeg het winkelmandje. */
+  (function(){
+    var hash = window.location.hash || "";
+    if(hash.indexOf("#order-confirmed") !== 0) return;
+    var vraag = hash.split("?")[1] || "";
+    var gevonden = /order=([^&]+)/.exec(vraag);
+    if(gevonden){
+      var el = document.getElementById("confirmedOrderNumber");
+      if(el) el.textContent = decodeURIComponent(gevonden[1]);
+    }
+    state.cart = [];
+    saveCart();
+    renderCart();
+  })();
 
   /* ---------- COOKIE BAR ---------- */
   /* ---------- 15% POPUP ---------- */
