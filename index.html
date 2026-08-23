@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
 <title>Ontlast.nl | Alles voor je spijsvertering</title>
 <style>
   @font-face { font-family:'Poppins'; src:url('./assets/fonts/poppins-400.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
@@ -822,6 +824,23 @@
     .discount-row{flex-wrap:wrap;}
     .discount-row input{flex:1 1 100%;min-width:0;width:100%;}
     .discount-row .btn{flex:1 1 100%;width:100%;margin-top:8px;}
+
+    /* iOS zoomt automatisch in op velden kleiner dan 16px -> pagina viel buiten beeld */
+    .form-group input,.form-group select,.form-group textarea,
+    .discount-row input,.track-form input,
+    input[type="text"],input[type="email"],input[type="tel"],
+    input[type="number"],input[type="search"],select,textarea{font-size:16px;}
+    .form-group label{font-size:11.5px;}
+
+    /* cookiebalk nam een derde van het scherm en bedekte de footer */
+    .cookie-bar{padding:14px 0;}
+    .cookie-inner{gap:12px;}
+    .cookie-copy{min-width:0;}
+    .cookie-copy strong{font-size:13px;margin-bottom:4px;}
+    .cookie-copy p{font-size:11.5px;line-height:1.5;}
+    .cookie-actions{gap:8px;}
+    .cookie-btn{padding:11px 8px;font-size:11px;letter-spacing:.04em;}
+    footer{padding-bottom:24px;}
   }
   /* mobiel uitklapmenu sloot niet aan op de header */
   .mobile-menu{top:76px;}
@@ -844,7 +863,6 @@
             <a href="#category/spijsverteringsenzymen">Spijsverteringsenzymen</a>
             <a href="#category/maag-kruiden">Maag &amp; Kruiden</a>
             <a href="#category/darmondersteuning">Darmondersteuning</a>
-    <a href="#category/magnesium">Magnesium</a>
             <a href="#category/magnesium">Magnesium</a>
           </div>
         </li>
@@ -2305,7 +2323,23 @@
     }
     var target = document.getElementById(pageId);
     if(target){ target.classList.add("active"); }
-    window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+    var baseHash2 = hash.split("?")[0];
+    var jumpToGrid = !!categorySlugFromHash || baseHash2 === "#products-grid";
+    if(jumpToGrid){
+      var doJump = function(){
+        var g = document.getElementById("products-grid");
+        if(!g){ window.scrollTo(0, 0); return; }
+        var nb = document.getElementById("navbar");
+        var navH = (nb && nb.offsetHeight) ? nb.offsetHeight : 76;
+        var y = g.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || 0) - navH - 6;
+        window.scrollTo(0, y < 0 ? 0 : y);
+      };
+      doJump();
+      setTimeout(doJump, 70);
+      setTimeout(doJump, 260);
+    } else {
+      window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+    }
     closeMobileMenu();
   }
   window.addEventListener("hashchange", router);
