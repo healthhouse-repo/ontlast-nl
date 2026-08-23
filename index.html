@@ -190,6 +190,7 @@
     border-top:1px solid var(--nav-border);max-height:70vh;overflow-y:auto;
   }
   .mobile-menu.open{display:flex;}
+  body.mobile-menu-lock{overflow:hidden;}
   .mobile-menu a{color:var(--nav-text);font-weight:700;text-transform:uppercase;font-size:14px;padding:14px 0;border-bottom:1px solid var(--nav-border);}
 
   @media(max-width:760px){
@@ -465,12 +466,12 @@
 
   /* ---------- CART ---------- */
   .cart-overlay{
-    position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1400;opacity:0;pointer-events:none;
+    position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9100;opacity:0;pointer-events:none;
     transition:opacity .25s ease;
   }
   .cart-overlay.open{opacity:1;pointer-events:auto;}
   .cart-panel{
-    position:fixed;top:0;right:0;bottom:0;width:420px;max-width:92vw;background:#fff;z-index:1500;
+    position:fixed;top:0;right:0;bottom:0;width:420px;max-width:92vw;background:#fff;z-index:9200;
     display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease;
     box-shadow:-10px 0 40px rgba(0,0,0,0.2);
   }
@@ -490,10 +491,10 @@
   .cart-item-info .flavor{font-size:12px;color:rgba(26,26,26,0.5);margin-bottom:10px;}
   .cart-item-row{display:flex;align-items:center;justify-content:space-between;}
   .cart-qty{display:flex;align-items:center;border:1px solid var(--border-light);border-radius:4px;}
-  .cart-qty button{background:none;width:26px;height:26px;font-size:14px;font-weight:700;}
+  .cart-qty button{background:none;width:34px;height:34px;font-size:14px;font-weight:700;}
   .cart-qty .val{width:26px;text-align:center;font-size:13px;font-weight:700;}
   .cart-item-price{font-weight:700;font-size:14px;}
-  .cart-remove{background:none;font-size:11px;color:var(--ontlast-coral);text-decoration:underline;font-weight:700;margin-top:8px;}
+  .cart-remove{background:none;font-size:11px;color:var(--ontlast-coral);text-decoration:underline;font-weight:700;margin-top:4px;padding:10px 0;}
   .cart-footer{border-top:1px solid var(--border-light);padding:20px 24px 28px;}
   .cart-subtotal{display:flex;justify-content:space-between;font-weight:700;font-size:16px;margin-bottom:16px;text-transform:uppercase;}
   .cart-footer .btn{width:100%;}
@@ -548,7 +549,7 @@
   .toast{
     position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
     background:#1A1A1A;color:#fff;padding:14px 26px;border-radius:6px;font-weight:700;font-size:13px;
-    z-index:2000;opacity:0;transition:all .25s ease;pointer-events:none;text-transform:uppercase;letter-spacing:0.03em;
+    z-index:9300;opacity:0;transition:all .25s ease;pointer-events:none;text-transform:uppercase;letter-spacing:0.03em;
   }
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
@@ -674,7 +675,7 @@
   .blog-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;}
   .blog-filter{border:1px solid var(--border-light);background:#fff;color:var(--heading-color);
     font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.06em;
-    text-transform:uppercase;padding:9px 17px;border-radius:100px;cursor:pointer;transition:all .2s ease;}
+    text-transform:uppercase;padding:12px 17px;border-radius:100px;cursor:pointer;transition:all .2s ease;}
   .blog-filter:hover{border-color:var(--ontlast-coral);color:var(--ontlast-coral);}
   .blog-filter.active{background:var(--ontlast-coral);border-color:var(--ontlast-coral);color:#fff;}
   .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
@@ -854,7 +855,7 @@
   /* ---------- MOBIEL-CORRECTIES (23 aug) ---------- */
   @media(max-width:760px){
     html,body{max-width:100%;overflow-x:hidden;}
-    .container{padding:0 16px;}
+    .container{padding-left:16px;padding-right:16px;}
     main,section,footer,.hero,.products-section,.category-section{max-width:100%;}
 
     /* producttegels: 2 naast elkaar i.p.v. horizontale carrousel */
@@ -1959,7 +1960,7 @@
             <strong>Niet zeker welk product bij je past?</strong>
             <p>Op elke productpagina staat waar de formule voor bedoeld is, hoe je hem gebruikt en wat erin zit. Kom je er niet uit? Mail ons gerust.</p>
           </div>
-          <a class="btn btn-dark" href="#shop">Bekijk het assortiment</a>
+          <a class="btn btn-dark" href="#products-grid">Bekijk het assortiment</a>
         </div>
       </div>
       <aside class="article-side" id="articleSide"></aside>
@@ -2470,8 +2471,9 @@
   var hamburgerBtn = document.getElementById("hamburgerBtn");
   hamburgerBtn.addEventListener("click", function(){
     mobileMenu.classList.toggle("open");
+    document.body.classList.toggle("mobile-menu-lock", mobileMenu.classList.contains("open"));
   });
-  function closeMobileMenu(){ mobileMenu.classList.remove("open"); }
+  function closeMobileMenu(){ mobileMenu.classList.remove("open"); document.body.classList.remove("mobile-menu-lock"); }
 
   /* ---------- CATEGORY TILES ---------- */
   var catTiles = document.querySelectorAll(".cat-tile");
