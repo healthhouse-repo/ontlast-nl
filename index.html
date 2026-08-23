@@ -1,6 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- ===================== THH ADS TRACKING — CONFIG =====================
+     Vul hieronder in vóór livegang:
+     - googleAdsId : Google Ads conversie-ID, formaat AW-XXXXXXXXX
+     - ga4Id       : GA4-meet-ID, formaat G-XXXXXXXXXX
+     - labels.add_to_cart / begin_checkout / purchase : het conversielabel
+       per conversieactie zoals aangemaakt in Google Ads (Extra's > Conversies)
+     Zolang googleAdsId én ga4Id leeg zijn, laadt dit blok niets: geen fouten,
+     geen (halve) metingen. Zodra minimaal één van de twee is ingevuld, gaat
+     de meting automatisch lopen.
+     ======================================================================= -->
+<script>
+window.THH_ADS_CONFIG = {
+  googleAdsId: "",   // <<< VUL IN: bv. AW-123456789
+  ga4Id: "",         // <<< VUL IN: bv. G-ABCDE12345
+  labels: {
+    add_to_cart: "",     // <<< VUL IN: conversielabel "Product toegevoegd aan winkelwagen"
+    begin_checkout: "",  // <<< VUL IN: conversielabel "Start afrekenen"
+    purchase: ""         // <<< VUL IN: conversielabel "Aankoop"
+  }
+};
+(function(){
+  var c = window.THH_ADS_CONFIG;
+  var mainId = c.ga4Id || c.googleAdsId;
+  if(!mainId) return; // nog niet ingevuld — geen metingen tot de ID's zijn aangevuld
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function(){ dataLayer.push(arguments); };
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(mainId);
+  document.head.appendChild(s);
+  gtag('js', new Date());
+  if(c.googleAdsId) gtag('config', c.googleAdsId);
+  if(c.ga4Id) gtag('config', c.ga4Id);
+  gtag('event', 'page_view');
+})();
+
+/* thhConv(eventName, params) stuurt een GA4-event en — als er een label is
+   ingevuld voor die actie — meteen ook een Google Ads-conversie. */
+window.thhConv = function(eventName, params){
+  try{
+    if(typeof gtag !== 'function') return;
+    params = params || {};
+    gtag('event', eventName, params);
+    var c = window.THH_ADS_CONFIG;
+    var label = c.labels && c.labels[eventName];
+    if(c.googleAdsId && label){
+      var convParams = Object.assign({ send_to: c.googleAdsId + '/' + label }, params);
+      gtag('event', 'conversion', convParams);
+    }
+  }catch(e){}
+};
+
+/* thhTrackPurchaseOnce voorkomt een dubbele aankoopmeting (bv. als de klant de
+   bedankt-pagina ververst). Het ordernummer wordt onthouden in localStorage. */
+window.thhTrackPurchaseOnce = function(orderNumber, value, items){
+  try{
+    if(!orderNumber) return;
+    var KEY = 'thh_ads_purchases_sent';
+    var sent = [];
+    try{ sent = JSON.parse(localStorage.getItem(KEY) || '[]'); }catch(e){}
+    if(sent.indexOf(orderNumber) !== -1) return; // al gemeten
+    sent.push(orderNumber);
+    try{ localStorage.setItem(KEY, JSON.stringify(sent)); }catch(e){}
+    window.thhConv('purchase', {
+      transaction_id: orderNumber,
+      value: value,
+      currency: 'EUR',
+      items: items || []
+    });
+  }catch(e){}
+};
+</script>
+<!-- ===================== EINDE THH ADS TRACKING ===================== -->
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
@@ -2392,6 +2466,15 @@
     }
     if(pageId === "page-checkout"){
       renderCheckoutSummary();
+      try{
+        var _thhCart = state.cart || [];
+        var _thhSum = _thhCart.reduce(function(s,c){ return s + (c.price||0)*(c.qty||1); }, 0);
+        window.thhConv && window.thhConv("begin_checkout", {
+          value: _thhSum,
+          currency: "EUR",
+          items: _thhCart.map(function(c){ return { item_name: c.name || c.slug, quantity: c.qty, price: c.price }; })
+        });
+      }catch(e){}
     }
     if(pageId === "page-payment"){
       if(!state.order){
@@ -2816,6 +2899,13 @@
     }
     saveCart();
     renderCart();
+    try{
+      window.thhConv && window.thhConv("add_to_cart", {
+        value: (item.price || 0) * (item.qty || 1),
+        currency: "EUR",
+        items: [{ item_name: item.name || item.slug, quantity: item.qty, price: item.price }]
+      });
+    }catch(e){}
   }
 
   function removeFromCart(index){
@@ -3409,6 +3499,13 @@
       .then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
       .then(function(res){
         if(res.ok && res.j && res.j.checkoutUrl){
+          try{
+            localStorage.setItem("thh_pending_order", JSON.stringify({
+              orderNumber: (res.j.orderNumber || order.orderNumber),
+              value: order.totals.total,
+              items: (order.items || []).map(function(i){ return { item_name: i.name, quantity: i.qty, price: i.price }; })
+            }));
+          }catch(e){}
           window.location.href = res.j.checkoutUrl;
           return;
         }
@@ -3460,8 +3557,15 @@
     var vraag = hash.split("?")[1] || "";
     var gevonden = /order=([^&]+)/.exec(vraag);
     if(gevonden){
+      var orderNum = decodeURIComponent(gevonden[1]);
       var el = document.getElementById("confirmedOrderNumber");
-      if(el) el.textContent = decodeURIComponent(gevonden[1]);
+      if(el) el.textContent = orderNum;
+      try{
+        var pend = JSON.parse(localStorage.getItem("thh_pending_order") || "null");
+        if(pend && pend.orderNumber === orderNum && window.thhTrackPurchaseOnce){
+          window.thhTrackPurchaseOnce(pend.orderNumber, pend.value, pend.items);
+        }
+      }catch(e){}
     }
     state.cart = [];
     saveCart();
